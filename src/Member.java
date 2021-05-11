@@ -3,15 +3,15 @@ public class Member {
   private String name;
   private int age;
   private String ID;
-  private EnumMembershipType enumMembershipType;
+  private MembershipType membershipType;
   private boolean memberStatus;
   private int memberCash;
   // Jens
-  public Member(String name, int age, String ID, EnumMembershipType enumMembershipType, boolean memberStatus, int memberCash){
+  public Member(String name, int age, String ID, MembershipType membershipType, boolean memberStatus, int memberCash){
     this.name = name;
     this.age = age;
     this.ID = ID;
-    this.enumMembershipType = enumMembershipType;
+    this.membershipType = membershipType;
     this.memberStatus = memberStatus;
     this.memberCash = memberCash;
 
@@ -42,12 +42,12 @@ public class Member {
     return ID;
   }
 
-  public void setEnumMembershipType(EnumMembershipType enumMembershipType) {
-    this.enumMembershipType = enumMembershipType;
+  public void setMembershipType(MembershipType membershipType) {
+    this.membershipType = membershipType;
   }
 
-  public EnumMembershipType getEnumMembershipType() {
-    return enumMembershipType;
+  public MembershipType getMembershipType() {
+    return membershipType;
   }
   // Tine eller Patrik
 

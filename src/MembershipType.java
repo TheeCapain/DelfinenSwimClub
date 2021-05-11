@@ -1,4 +1,4 @@
-public enum EnumMembershipType {
+public enum MembershipType {
   //Jens enum
 JUNIORSWIMMER,SENIORSWIMMER;
 }
