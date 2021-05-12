@@ -21,6 +21,10 @@ public class ManageMembers {
 
     }
 
+    public void editMemberInfo(){
+
+    }
+
     public void printMembersList() {
         System.out.println(members.get(0));
 
