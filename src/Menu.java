@@ -1,12 +1,17 @@
 public class Menu {
   //Agust & Jens
-  private final String[]ManageMemberMenu = {"1. Add new member", "2. Delete a member", "3.Edit a member"};
+  private final String[]manageMemberMenu = {"1. Add new member", "2. Delete a member", "3.Print mambers list"};
   private final String[]mainMenu = {"1. Foreman", "2. Cashier","3. Coach", "9. Quit"};
 
   //Agust & Jens
-  public void printMenu() {
+  public void printMenu(Ui ui) {
     for (int i = 0; i < mainMenu.length; i++) {
-      System.out.println(mainMenu[i]);
+      ui.display(mainMenu[i]);
+    }
+  }
+  public void printForemanMenu(Ui ui) {
+    for (int i = 0; i < manageMemberMenu.length; i++) {
+      ui.display(manageMemberMenu[i]);
     }
   }
 }

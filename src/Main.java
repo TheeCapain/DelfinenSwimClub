@@ -1,8 +1,13 @@
+import java.io.FileNotFoundException;
+
 public class Main {
 
     public static void main(String[]args) {
-        Controller control = new Controller();
-        control.menuController();
+    new Main().run();
+    }
+    public void run() {
+        Controller controller = new Controller();
+        controller.menuController();
     }
 
 }

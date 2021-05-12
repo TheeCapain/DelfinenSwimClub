@@ -1,8 +1,8 @@
 import java.util.Scanner;
 
 //August
-public class UI {
-
+public class Ui {
+Scanner scan = new Scanner(System.in);
 
   public void display(String message) {
     System.out.println(message);
@@ -12,11 +12,11 @@ public class UI {
     System.out.println(number);
   }
 
-  public int scanInt(Scanner scan) {
+  public int scanInt() {
     return scan.nextInt();
   }
 
-  public String scanString(Scanner scan) {
+  public String scanString() {
     return scan.nextLine();
   }
 }

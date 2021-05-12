@@ -2,13 +2,14 @@ import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.io.PrintStream;
+import java.util.ArrayList;
 
 //Jens og August
 public class FileHandler {
 
   //@TODO Spørg tine hvordan man kan trigger try/catch+test
 
-  public void createFile(String name) {
+  public void createFile(Ui ui) {
     try {
       //Create an instance of the File
       File memberFile = new File("MemberList.txt");
@@ -19,29 +20,35 @@ public class FileHandler {
         ui.display("File already exists");
       }
     } catch (IOException e) {
-      ui.display("An error occurred");
+      ui.display("An error occurred createFile");
     }
   }
 
 
-  public void saveFile() throws FileNotFoundException {
-    File memberFile = new File("MemberList.txt");
-    PrintStream printStream = new PrintStream(memberFile);
+  public void saveFile(ArrayList members,Ui ui)  {
+    try {
+      File memberFile = new File("MemberList.txt");
+      PrintStream printStream = new PrintStream(memberFile);
 
-    for (int i = 0; i < manageMembers.members.size(); i++) {
-      Member member = manageMembers.members.get(i);
-      String print = "";
-      print+=member.getName();
-      print+=member.getAge();
-      print+=member.getID();
-      print+=member.getMembershipType();
-      print+=member.getMemberStatus();
-      print+=member.getMemberCash();
+      for (int i = 0; i < members.size(); i++) {
+        Member member = (Member) members.get(i);
+        String print = "";
+        print+=member.getName();
+        print+=member.getAge();
+        print+=member.getID();
+        print+=member.getMembershipType();
+        print+=member.getMemberStatus();
+        print+=member.getMemberCash();
 
-      printStream.println(print);
+        printStream.println(print);
 
+      }
+      printStream.close();
+   // @TODO spræger igen hvad Exception e?
+    }catch (IOException e) {
+      ui.display("An error occurred saveFile");
     }
-printStream.close();
+
   }
 
 

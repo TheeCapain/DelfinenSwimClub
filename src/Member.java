@@ -74,14 +74,13 @@ public Member(){
 
   @Override
   public String toString() {
-    return "Member{" +
-        "name='" + name + '\'' +
-        ", age=" + age +
-        ", ID='" + ID + '\'' +
-        ", membershipType=" + membershipType +
-        ", memberStatus=" + memberStatus +
-        ", memberCash=" + memberCash +
-        '}';
+    return "Member " +
+        "\nName: " + name +
+        "\nAge: " + age +
+        "\nID: " + ID +
+        "\nMembershipType: " + membershipType +
+        "\nMemberStatus: " + memberStatus +
+        "\nMemberCash: " + memberCash;
   }
 }
 
