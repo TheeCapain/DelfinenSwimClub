@@ -9,13 +9,13 @@ public class ManageMembers {
 
   //Creates new member and adds to the ArrayList
   public void createNewMember() {
-    String name = member.getName();
-    int age = member.getAge();
-    String ID = member.getID();
+    member.setName(ui.scanString());
+    member.setAge(ui.scanInt());
+     member.setID(ui.scanString());
     MembershipType membershipType = member.getMembershipType();
     boolean memberStatus = member.getMemberStatus();
     int memberCash = member.getMemberCash();
-    members.add(new Member(name, age, ID, membershipType, memberStatus, memberCash));
+    members.add(new Member(member.getName(), member.getAge(), member.getID(), mem));
   }
 
   //Deletes a member from the members List

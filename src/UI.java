@@ -1,5 +1,5 @@
 import java.util.Scanner;
-
+//August
 public class UI {
     Scanner scan =  new Scanner(System.in);
 
@@ -12,6 +12,10 @@ public class UI {
 
     public int scanInt(){
         return scan.nextInt();
+    }
+
+    public String scanString(){
+        return scan.nextLine();
     }
 
 }
