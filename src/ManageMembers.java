@@ -1,14 +1,12 @@
+import java.io.FileNotFoundException;
 import java.util.ArrayList;
 
 //August
 public class ManageMembers {
   //TODO spørg tine om ny instance ved hvert kald
- private ArrayList<Member> members = new ArrayList<>();
-  Member member = new Member();
-  UI ui = new UI();
 
   //Creates new member and adds to the ArrayList
-  public void createNewMember() {
+  public void createNewMember() throws FileNotFoundException {
     ui.display("Enter name");
     member.setName(ui.scanString());
 
@@ -35,7 +33,6 @@ public class ManageMembers {
     int choice = ui.scanInt();
 
     members.remove(choice);
-
 
   }
 

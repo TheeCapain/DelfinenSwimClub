@@ -1,13 +1,16 @@
-public class Controller {
+import java.util.Scanner;
 
+public class Controller {
+  Scanner scan = new Scanner(System.in);
   UI ui = new UI();
   Menu menu = new Menu();
-//Agust & Jens Cobtroller and menu
+
+  //Agust & Jens Cobtroller and menu
   public void menuController() {
     String choice;
     boolean keepRunning;
 
-    do{
+    do {
       menu.printMenu();
       ui.display("Enter number");
       choice = ui.scanString();
@@ -26,11 +29,10 @@ public class Controller {
         case "9":
           ui.display("Bye");
           keepRunning = false;
-        break;
+          break;
         default:
           ui.display("Not valid number");
       }
-
-    }while (keepRunning);
+    } while (keepRunning);
   }
 }

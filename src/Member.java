@@ -17,8 +17,9 @@ public class Member {
 
   }
  //Overlording så den kan vike i  ManageMembers
-  public Member() {
-  }
+public Member(){
+
+}
   // Jens set og get
 
   public void setName(String name) {

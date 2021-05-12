@@ -1,21 +1,22 @@
 import java.util.Scanner;
+
 //August
 public class UI {
-    Scanner scan =  new Scanner(System.in);
 
-    public void display(String message){
-        System.out.println(message);
-    }
-    public void display(int number){
-        System.out.println(number);
-    }
 
-    public int scanInt(){
-        return scan.nextInt();
-    }
+  public void display(String message) {
+    System.out.println(message);
+  }
 
-    public String scanString(){
-        return scan.nextLine();
-    }
+  public void display(int number) {
+    System.out.println(number);
+  }
 
+  public int scanInt(Scanner scan) {
+    return scan.nextInt();
+  }
+
+  public String scanString(Scanner scan) {
+    return scan.nextLine();
+  }
 }
