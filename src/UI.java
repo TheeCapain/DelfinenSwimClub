@@ -10,8 +10,8 @@ public class UI {
         System.out.println(number);
     }
 
-    public void scanInt(){
-
+    public int scanInt(){
+        return scan.nextInt();
     }
 
 }
