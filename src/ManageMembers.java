@@ -2,14 +2,16 @@ import java.util.ArrayList;
 
 //August
 public class ManageMembers {
-  private ArrayList<Member> members = new ArrayList<>();
+  ArrayList<Member> members = new ArrayList<>();
   Member member;
+
   UI ui = new UI();
 
   //Creates new member and adds to the ArrayList
   public void createNewMember() {
     ui.display("Enter name of new Member");
-    member.setName(ui.scanString());
+    String name = ui.scanString();
+    member.getName();
     ui.display("Enter Age");
     member.setAge(ui.scanInt());
     ui.display("Enter IDnr");
@@ -19,6 +21,7 @@ public class ManageMembers {
     member.setMemberStatus(true);
     member.setMemberCash(100);
     members.add(new Member(member.getName(), member.getAge(), member.getID(), member.getMembershipType(), member.getMemberStatus(), member.getMemberCash()));
+
   }
 
   //Deletes a member from the members List
@@ -42,7 +45,12 @@ public class ManageMembers {
     printMembersList();
     //gets choice to edit
     int choice = ui.scanInt();
-    members.get(choice);
+    if (choice > members.size()){
+      ui.display("There is no member with that number");
+    } else {
+      members.get(choice);
+    }
+
     /*TODO Skal laves en menu over de ting man kan ændre ved et member(Navn, alder, membershiptype og status) */
     ui.display("And what would you like to edit?");
   }
