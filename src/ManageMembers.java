@@ -11,7 +11,6 @@ public class ManageMembers {
   public void createNewMember() {
     ui.display("Enter name of new Member");
     String name = ui.scanString();
-    member.getName();
     ui.display("Enter Age");
     member.setAge(ui.scanInt());
     ui.display("Enter IDnr");
