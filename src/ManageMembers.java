@@ -2,9 +2,9 @@ import java.util.ArrayList;
 
 //August
 public class ManageMembers {
-  ArrayList<Member> members = new ArrayList<>();
+  //TODO spørg tine om ny instance ved hvert kald
+ private ArrayList<Member> members = new ArrayList<>();
   Member member = new Member();
-
   UI ui = new UI();
 
   //Creates new member and adds to the ArrayList
@@ -14,11 +14,8 @@ public class ManageMembers {
 
     ui.display("Enter Age");
     member.setAge(ui.scanInt());
-
-    ui.display("Enter IDnr");
+  //Hardcoded for eksempel skyld
     member.setID(ui.scanString());
-
-    ui.display("Enter desired membership type");
     member.setMembershipType(MembershipType.JUNIORSWIMMER);
 
     member.setMemberStatus(true);
@@ -48,7 +45,8 @@ public class ManageMembers {
     printMembersList();
     //gets choice to edit
     int choice = ui.scanInt();
-    if (choice > members.size()){
+
+    if (choice > members.size()) {
       ui.display("There is no member with that number");
     } else {
       members.get(choice);
@@ -59,7 +57,7 @@ public class ManageMembers {
   }
 
   public void printMembersList() {
-    for (int i =0;i<members.size();i++){
+    for (int i = 0; i < members.size(); i++) {
       System.out.println(members.get(i).toString());
     }
   }
