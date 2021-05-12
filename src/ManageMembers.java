@@ -2,7 +2,6 @@ import java.util.ArrayList;
 
 //August
 public class ManageMembers {
-  //Skal ændres til at modtage en member når den er lavet
   private ArrayList<Member> members = new ArrayList<>();
   Member member;
   UI ui = new UI();
@@ -29,7 +28,7 @@ public class ManageMembers {
     //Should show index value of members starting from 1
     printMembersList();
     //Gets scanner from ui and stores the value in choice
-    /* skal fejlsikres*/
+    /*TODO skal fejlsikres*/
     int choice = ui.scanInt();
 
     members.remove(choice);
@@ -44,15 +43,13 @@ public class ManageMembers {
     //gets choice to edit
     int choice = ui.scanInt();
     members.get(choice);
-    /* Skal laves en menu over de ting man kan ændre ved et member(Navn, alder, membershiptype og status) */
+    /*TODO Skal laves en menu over de ting man kan ændre ved et member(Navn, alder, membershiptype og status) */
     ui.display("And what would you like to edit?");
-
-
-
   }
 
   public void printMembersList() {
-    System.out.println(members.get(0));
-
+    for (int i =0;i<members.size();i++){
+      System.out.println(members.get(i));
+    }
   }
 }
