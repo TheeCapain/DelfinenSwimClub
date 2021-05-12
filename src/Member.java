@@ -16,7 +16,7 @@ public class Member {
     this.memberCash = memberCash;
 
   }
-
+ //Overlording så den kan vike i  ManageMembers
   public Member() {
   }
   // Jens set og get
