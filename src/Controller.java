@@ -2,7 +2,7 @@ public class Controller {
 
   UI ui = new UI();
   Menu menu = new Menu();
-//Agust & Jens
+//Agust & Jens Cobtroller and menu
   public void menuController() {
     String choice;
     boolean keepRunning;
