@@ -16,7 +16,10 @@ public class Member {
     this.memberCash = memberCash;
 
   }
- // Jens set og get
+
+  public Member() {
+  }
+  // Jens set og get
 
   public void setName(String name) {
     this.name = name;
@@ -66,6 +69,18 @@ public class Member {
 
   public int getMemberCash() {
     return memberCash;
+  }
+
+  @Override
+  public String toString() {
+    return "Member{" +
+        "name='" + name + '\'' +
+        ", age=" + age +
+        ", ID='" + ID + '\'' +
+        ", membershipType=" + membershipType +
+        ", memberStatus=" + memberStatus +
+        ", memberCash=" + memberCash +
+        '}';
   }
 }
 

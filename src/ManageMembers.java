@@ -3,20 +3,24 @@ import java.util.ArrayList;
 //August
 public class ManageMembers {
   ArrayList<Member> members = new ArrayList<>();
-  Member member;
+  Member member = new Member();
 
   UI ui = new UI();
 
   //Creates new member and adds to the ArrayList
   public void createNewMember() {
-    ui.display("Enter name of new Member");
-    String name = ui.scanString();
+    ui.display("Enter name");
+    member.setName(ui.scanString());
+
     ui.display("Enter Age");
     member.setAge(ui.scanInt());
+
     ui.display("Enter IDnr");
     member.setID(ui.scanString());
+
     ui.display("Enter desired membership type");
     member.setMembershipType(MembershipType.JUNIORSWIMMER);
+
     member.setMemberStatus(true);
     member.setMemberCash(100);
     members.add(new Member(member.getName(), member.getAge(), member.getID(), member.getMembershipType(), member.getMemberStatus(), member.getMemberCash()));
@@ -56,7 +60,8 @@ public class ManageMembers {
 
   public void printMembersList() {
     for (int i =0;i<members.size();i++){
-      System.out.println(members.get(i));
+      System.out.println(members.get(i).toString());
     }
   }
+
 }
