@@ -9,13 +9,17 @@ public class ManageMembers {
 
   //Creates new member and adds to the ArrayList
   public void createNewMember() {
+    ui.display("Enter name of new Member");
     member.setName(ui.scanString());
+    ui.display("Enter Age");
     member.setAge(ui.scanInt());
-     member.setID(ui.scanString());
-    MembershipType membershipType = member.getMembershipType();
-    boolean memberStatus = member.getMemberStatus();
-    int memberCash = member.getMemberCash();
-    members.add(new Member(member.getName(), member.getAge(), member.getID(), mem));
+    ui.display("Enter IDnr");
+    member.setID(ui.scanString());
+    ui.display("Enter desired membership type");
+    member.setMembershipType(MembershipType.JUNIORSWIMMER);
+    member.setMemberStatus(true);
+    member.setMemberCash(100);
+    members.add(new Member(member.getName(), member.getAge(), member.getID(), member.getMembershipType(), member.getMemberStatus(), member.getMemberCash()));
   }
 
   //Deletes a member from the members List
@@ -34,6 +38,16 @@ public class ManageMembers {
   }
 
   public void editMemberInfo() {
+    //prints memberlist and show index position
+    ui.display("Which member would you like to edit?");
+    printMembersList();
+    //gets choice to edit
+    int choice = ui.scanInt();
+    members.get(choice);
+    /* Skal laves en menu over de ting man kan ændre ved et member(Navn, alder, membershiptype og status) */
+    ui.display("And what would you like to edit?");
+
+
 
   }
 
