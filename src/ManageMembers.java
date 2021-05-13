@@ -13,10 +13,9 @@ public class ManageMembers {
     member.setAge(ui.scanInt());
   //Hardcoded for eksempel skyld
     member.setID(ui.scanString());
-    member.setMembershipType(MembershipType.JUNIORSWIMMER);
-
     member.setMemberStatus(true);
     member.setMemberCash(100);
+    member.setMembershipType();
     addMemberToList(member,members);
   }
   public void addMemberToList(Member member,ArrayList members) {

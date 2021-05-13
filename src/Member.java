@@ -6,8 +6,9 @@ public class Member {
   private MembershipType membershipType;
   private boolean memberStatus;
   private int memberCash;
+
   // Jens
-  public Member(String name, int age, String ID, MembershipType membershipType, boolean memberStatus, int memberCash){
+  public Member(String name, int age, String ID, MembershipType membershipType, boolean memberStatus, int memberCash) {
     this.name = name;
     this.age = age;
     this.ID = ID;
@@ -16,10 +17,11 @@ public class Member {
     this.memberCash = memberCash;
 
   }
- //Overlording så den kan vike i  ManageMembers
-public Member(){
 
-}
+  //Overlording så den kan vike i  ManageMembers
+  public Member() {
+
+  }
   // Jens set og get
 
   public void setName(String name) {
@@ -47,8 +49,19 @@ public Member(){
     return ID;
   }
 
-  public void setMembershipType(MembershipType membershipType) {
-    this.membershipType = membershipType;
+  public void setMembershipType() {
+    this.membershipType = validateMemberShip();
+  }
+
+  public MembershipType validateMemberShip(){
+    if (getAge() < 18) {
+      membershipType = MembershipType.JUNIORSWIMMER;
+    } else if (getAge() > 18 && getAge() < 60)
+      membershipType = MembershipType.SENIORSWIMMER;
+    else {
+      membershipType = MembershipType.SENIORO60;
+    }
+    return membershipType;
   }
 
   public MembershipType getMembershipType() {
