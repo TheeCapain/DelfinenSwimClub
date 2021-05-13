@@ -1,4 +1,3 @@
-import java.io.FileNotFoundException;
 import java.util.ArrayList;
 
 public class Controller {
@@ -8,18 +7,17 @@ public class Controller {
   Menu menu = new Menu();
   FileHandler fileHandler = new FileHandler();
   Member member = new Member();
-  MembershipType membershipType;
 
 
 
-  //Agust & Jens Cobtroller and menu
+  //August & Jens Cobtroller and menu
   public void menuController()  {
     String choice;
     boolean keepRunning;
 
     do {
       menu.printMenu(ui);
-      ui.display("Enter number");
+      ui.display("Enter number:");
       choice = ui.scanString();
       keepRunning = true;
 
@@ -43,14 +41,15 @@ public class Controller {
       }
     } while (keepRunning);
   }
-  //Agust & Jens Cobtroller and menu
+
+  //August & Jens Controller and menu
   public void foremanController() {
     String choice;
     boolean keepRunning;
 
     do {
       menu.printForemanMenu(ui);
-      ui.display("Enter number");
+      ui.display("Enter number:");
       choice = ui.scanString();
       keepRunning = true;
 
@@ -65,8 +64,9 @@ public class Controller {
           break;
         case "3":
           manageMembers.printMembersList(members);
+          break;
         case "9":
-          ui.display("Bye");
+          ui.display("Closing foreman menu");
           keepRunning = false;
           break;
         default:
