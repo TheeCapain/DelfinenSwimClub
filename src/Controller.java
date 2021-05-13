@@ -5,13 +5,9 @@ public class Controller {
   ArrayList<Member> members = new ArrayList<>();
   Ui ui = new Ui();
   ManageMembers manageMembers = new ManageMembers();
-
   Menu menu = new Menu();
-
-
   FileHandler fileHandler = new FileHandler();
   Member member = new Member();
-
   MembershipType membershipType;
 
 
