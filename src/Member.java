@@ -53,7 +53,8 @@ public class Member {
     this.membershipType = validateMemberShip();
   }
 
-  public MembershipType validateMemberShip(){
+  //August
+  public MembershipType validateMemberShip() {
     if (getAge() < 18) {
       membershipType = MembershipType.JUNIORSWIMMER;
     } else if (getAge() > 18 && getAge() < 60)
