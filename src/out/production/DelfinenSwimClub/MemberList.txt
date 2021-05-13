@@ -1,0 +1,7 @@
+Testman 23 1758 Seniorswimmer true 100
+Karl 71 4398 Senior60 true 100
+August 22 7397 Seniorswimmer true 100
+Simon 21 8181 Seniorswimmer true 100
+Jens 26 7649 Seniorswimmer true 100
+Karl 71 4398 Senior60 true 100
+Testman 23 1758 Seniorswimmer true 100

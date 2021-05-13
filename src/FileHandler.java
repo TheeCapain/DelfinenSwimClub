@@ -44,7 +44,6 @@ public class FileHandler {
 
       }
       printStream.close();
-      // @TODO spræger igen hvad Exception e?
     } catch (IOException e) {
       ui.display("An error occurred saveFile");
     }
@@ -60,7 +59,7 @@ public class FileHandler {
 
         member.setName(scanFile.next());
         member.setAge(scanFile.nextInt());
-        member.setID(scanFile.next());
+        member.setID(scanFile.nextInt());
         member.setMemberShipType(scanFile.next());
         member.setMemberStatus(scanFile.nextBoolean());
         member.setMemberCash(scanFile.nextInt());
@@ -76,11 +75,6 @@ public class FileHandler {
     } catch (FileNotFoundException e) {
       ui.display("File not found");
       e.printStackTrace();
-
-      for (int i = 0; i < members.size(); i++) {
-        ui.display("waazzaa" + members.get(i).toString());
-        // System.out.println(members.get(i));
-      }
 
     }
   }

@@ -1,16 +1,18 @@
+import java.util.Random;
+
 public class Member {
   // Jens
   private String name;
   private int age;
-  private String ID;
+  private int ID;
   private final String[] MEMBER_SHIP_TYPE = {"Juniorswimmer","Seniorswimmer","Senior60"};
   private String memberShipType;
   private boolean memberStatus;
   private int memberCash;
-
+Random rand = new Random();
 
   // Jens
-  public Member(String name, int age, String ID,String memberShipType, boolean memberStatus, int memberCash) {
+  public Member(String name, int age, int ID,String memberShipType, boolean memberStatus, int memberCash) {
     this.name = name;
     this.age = age;
     this.ID = ID;
@@ -43,11 +45,15 @@ public class Member {
     return age;
   }
 
-  public void setID(String ID) {
+  public void setID(int ID) {
     this.ID = ID;
   }
 
-  public String getID() {
+  public int generateRandomId(){
+    return rand.nextInt(9999-1000)+1000;
+  }
+
+  public int getID() {
     return ID;
   }
 
