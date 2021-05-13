@@ -9,8 +9,9 @@ public class Controller {
   Member member = new Member();
 
 
-  //August & Jens Cobtroller and menu
+  //August & Jens Controller and menu
   public void menuController() {
+    members.add(0,member);
     String choice;
     boolean keepRunning;
 
@@ -56,41 +57,16 @@ public class Controller {
         }
         case "2" -> manageMembers.printMembersList(members, ui);
 
-        case "3" -> manageMembers.deleteMember(ui, members);
-
+        case "3" -> {
+          manageMembers.deleteMember(ui, members);
+          fileHandler.saveFile(members, ui);
+        }
         case "9" -> {
           ui.display("Closing foreman menu");
           keepRunning = false;
-          menuController();
         }
-        default -> ui.display("Not a valid option");
-      }
-    } while (keepRunning);
-  }
-
-  public void editMemberController() {
-    String choice;
-    boolean keepRunning;
-
-    do {
-    menu.editMemberMenu(ui);
-      ui.display("Enter number:");
-      choice = ui.scanString();
-      keepRunning = true;
-      switch (choice) {
-        case "1" -> {
-
-          keepRunning = false;
-
-        }
-        case "2" -> ui.display("Print Cashier");
-        case "3" -> ui.display("Print Coach");
-        case "9" -> {
-          ui.display("Bye");
-          keepRunning = false;
-        }
-        default -> ui.display("Not a valid option");
       }
     } while (keepRunning);
   }
 }
+
