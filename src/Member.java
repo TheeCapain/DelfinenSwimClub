@@ -3,16 +3,18 @@ public class Member {
   private String name;
   private int age;
   private String ID;
-  private MembershipType membershipType;
+  private final String[] MEMBER_SHIP_TYPE = {"Juniorswimmer","Seniorswimmer","Senior60"};
+  private String memberShipType;
   private boolean memberStatus;
   private int memberCash;
 
+
   // Jens
-  public Member(String name, int age, String ID, MembershipType membershipType, boolean memberStatus, int memberCash) {
+  public Member(String name, int age, String ID,String memberShipType, boolean memberStatus, int memberCash) {
     this.name = name;
     this.age = age;
     this.ID = ID;
-    this.membershipType = membershipType;
+    this.memberShipType = memberShipType;
     this.memberStatus = memberStatus;
     this.memberCash = memberCash;
 
@@ -49,26 +51,25 @@ public class Member {
     return ID;
   }
 
-  public void setMembershipType() {
-    this.membershipType = validateMemberShip();
+  public void setMemberShipType(String memberShipType) {
+    this.memberShipType = validateMemberShip();
+  }
+
+  public String getMemberShipType() {
+    return memberShipType;
   }
 
   //August
-  public MembershipType validateMemberShip() {
+  public String validateMemberShip() {
     if (getAge() < 18) {
-      membershipType = MembershipType.JUNIORSWIMMER;
+      memberShipType = MEMBER_SHIP_TYPE[0];
     } else if (getAge() > 18 && getAge() < 60)
-      membershipType = MembershipType.SENIORSWIMMER;
+      memberShipType = MEMBER_SHIP_TYPE[1];
     else {
-      membershipType = MembershipType.SENIORO60;
+      memberShipType = MEMBER_SHIP_TYPE[2];
     }
-    return membershipType;
+    return memberShipType;
   }
-
-  public MembershipType getMembershipType() {
-    return membershipType;
-  }
-  // Tine eller Patrik
 
   public void setMemberStatus(boolean memberStatus) {
     this.memberStatus = memberStatus;
@@ -92,7 +93,7 @@ public class Member {
         "\nName: " + name +
         "\nAge: " + age +
         "\nID: " + ID +
-        "\nMembershipType: " + membershipType +
+        "\nMembershipType: " + MEMBER_SHIP_TYPE +
         "\nMemberStatus: " + memberStatus +
         "\nMemberCash: " + memberCash;
   }

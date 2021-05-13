@@ -61,7 +61,7 @@ public class Controller {
           fileHandler.saveFile(members,ui);
           break;
         case "2":
-          fileHandler.readFile(ui);
+          fileHandler.readFile(ui,members,member);
           manageMembers.printMembersList(members);
 
           break;

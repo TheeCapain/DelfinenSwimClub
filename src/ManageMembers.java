@@ -12,15 +12,17 @@ public class ManageMembers {
     ui.display("Enter Age");
     member.setAge(ui.scanInt());
     //Hardcoded for eksempel skyld
+    ui.display("Enter ID");
     member.setID(ui.scanString());
+
     member.setMemberStatus(true);
     member.setMemberCash(100);
-    member.setMembershipType();
+    member.setMemberShipType(member.validateMemberShip());
     addMemberToList(member, members);
   }
 
   public void addMemberToList(Member member, ArrayList<Member> members) {
-    members.add(new Member(member.getName(), member.getAge(), member.getID(), member.getMembershipType(), member.getMemberStatus(), member.getMemberCash()));
+    members.add(new Member(member.getName(), member.getAge(), member.getID(), member.getMemberShipType(), member.getMemberStatus(), member.getMemberCash()));
   }
 
   //Deletes a member from the members List

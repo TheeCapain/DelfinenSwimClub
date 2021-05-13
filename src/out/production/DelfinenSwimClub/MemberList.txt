@@ -1,1 +1,1 @@
-asd, 12, , JUNIORSWIMMER, true, 100
+ko 45  Seniorswimmer true 100
