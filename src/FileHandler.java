@@ -24,13 +24,13 @@ public class FileHandler {
   }
 
 
-  public void saveFile(ArrayList members,Ui ui)  {
+  public void saveFile(ArrayList<Member> members,Ui ui)  {
     try {
       File memberFile = new File("MemberList.txt");
       PrintStream printStream = new PrintStream(memberFile);
 
       for (int i = 0; i < members.size(); i++) {
-        Member member = (Member) members.get(i);
+        Member member =  members.get(i);
         String print = "";
         print+=member.getName();
         print+=member.getAge();
