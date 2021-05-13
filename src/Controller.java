@@ -1,4 +1,5 @@
 import java.util.ArrayList;
+import java.util.Scanner;
 
 public class Controller {
   ArrayList<Member> members = new ArrayList<>();
@@ -60,10 +61,12 @@ public class Controller {
           fileHandler.saveFile(members,ui);
           break;
         case "2":
-          manageMembers.deleteMember(ui,members);
+          fileHandler.readFile(ui);
+          manageMembers.printMembersList(members);
+
           break;
         case "3":
-          manageMembers.printMembersList(members);
+          manageMembers.deleteMember(ui,members);
           break;
         case "9":
           ui.display("Closing foreman menu");

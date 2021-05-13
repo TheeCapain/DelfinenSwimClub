@@ -1,3 +1,5 @@
+import java.io.File;
+import java.io.FileNotFoundException;
 import java.util.Scanner;
 
 //August
@@ -19,4 +21,20 @@ Scanner scan = new Scanner(System.in);
   public String scanString() {
     return scan.nextLine();
   }
+/*
+  public Scanner scanFile(File memberFile) {
+    Scanner fileReader = null;
+    try {
+   fileReader = new Scanner(memberFile);
+    } catch (FileNotFoundException e) {
+      display("No file as argument");
+    }
+    return fileReader;
+  }
+
+  public Scanner closeScanner(){
+    Scanner closeScanner = null;
+    return closeScanner;
+  }
+  */
 }
