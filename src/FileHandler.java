@@ -3,14 +3,11 @@ import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.io.PrintStream;
 import java.util.ArrayList;
-import java.util.InputMismatchException;
 import java.util.Scanner;
 
 //Jens og August
 public class FileHandler {
 
-
-  //@TODO Spørg tine hvordan man kan trigger try/catch+test
 
   public void createFile(Ui ui) {
     try {
@@ -20,7 +17,7 @@ public class FileHandler {
       if (memberFile.createNewFile()) {
         ui.display("File Created: " + memberFile.getName());
       } else {
-        ui.display("File already exists");
+        ui.display("File Loaded");
       }
     } catch (IOException e) {
       ui.display("An error occurred createFile");
@@ -59,10 +56,7 @@ public class FileHandler {
       Scanner scanFile = new Scanner(memberFile);
       /* String name, int age, String ID, MembershipType membershipType, boolean memberStatus, int memberCash*/
 
-      while (scanFile.hasNextLine()) {
-
-
-        if(!scanFile.hasNextLine()){
+      while (scanFile.hasNext()) {
 
         member.setName(scanFile.next());
         member.setAge(scanFile.nextInt());
@@ -75,9 +69,10 @@ public class FileHandler {
         members.add(new Member(member.getName(), member.getAge(), member.getID(),
             member.getMemberShipType(), member.getMemberStatus(), member.getMemberCash()));
 
-        }
+
       }
       scanFile.close();
+
     } catch (FileNotFoundException e) {
       ui.display("File not found");
       e.printStackTrace();

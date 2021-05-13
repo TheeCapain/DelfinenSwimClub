@@ -8,13 +8,11 @@ public class ManageMembers {
   public void createNewMember(Ui ui, Member member, ArrayList<Member> members) {
     ui.display("Enter name");
     member.setName(ui.scanString());
-
-    ui.display("Enter Age");
-    member.setAge(ui.scanInt());
-    //Hardcoded for eksempel skyld
     ui.display("Enter ID");
     member.setID(ui.scanString());
 
+    ui.display("Enter Age");
+    member.setAge(ui.scanInt());
     member.setMemberStatus(true);
     member.setMemberCash(100);
     member.setMemberShipType(member.validateMemberShip());
@@ -45,27 +43,19 @@ public class ManageMembers {
 
   }
 
-  /*public void editMemberInfo() {
-    //prints memberlist and show index position
-    ui.display("Which member would you like to edit?");
-    printMembersList();
-    //gets choice to edit
-    int choice = ui.scanInt();
 
-    if (choice > members.size()) {
-      ui.display("There is no member with that number");
-    } else {
-      members.get(choice);
-    }
+  public void printMembersList(ArrayList<Member> members, Ui ui) {
 
-    //TODO Skal laves en menu over de ting man kan ændre ved et member(Navn, alder, membershiptype og status)
-    ui.display("And what would you like to edit?");
-  }*/
+    if (members.size()==0){
+      ui.display("List is empty");
+    } else
 
-  public void printMembersList(ArrayList<Member> members) {
-    for (int i = 0; i < members.size(); i++) {
-      System.out.println(members.get(i).toString());
-    }
+      for (int i = 0; i < members.size(); i++) {
+        ui.printFormatLines();
+        ui.display( "MemberNR: "+ i +" "+ members.get(i).toString());
+        ui.printFormatLines();
+      }
+
   }
 
 }

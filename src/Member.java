@@ -89,13 +89,13 @@ public class Member {
 
   @Override
   public String toString() {
-    return "Member " +
+    return
         "\nName: " + name +
         "\nAge: " + age +
         "\nID: " + ID +
-        "\nMembershipType: " + MEMBER_SHIP_TYPE +
+        "\nMembershipType: " + memberShipType+
         "\nMemberStatus: " + memberStatus +
-        "\nMemberCash: " + memberCash;
+        "\nMemberCash: " + memberCash + "\n";
   }
 }
 

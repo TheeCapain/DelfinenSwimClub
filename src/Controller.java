@@ -1,5 +1,4 @@
 import java.util.ArrayList;
-import java.util.Scanner;
 
 public class Controller {
   ArrayList<Member> members = new ArrayList<>();
@@ -10,35 +9,29 @@ public class Controller {
   Member member = new Member();
 
 
-
   //August & Jens Cobtroller and menu
-  public void menuController()  {
+  public void menuController() {
     String choice;
     boolean keepRunning;
 
     do {
-      menu.printMenu(ui);
+      menu.printMainMenu(ui);
       ui.display("Enter number:");
       choice = ui.scanString();
       keepRunning = true;
 
       switch (choice) {
-        case "1":
-          ui.display("Print Foreman");
+        case "1" -> {
+          keepRunning = false;
           foremanController();
-          break;
-        case "2":
-          ui.display("Print Cashier");
-          break;
-        case "3":
-          ui.display("Print Coach");
-          break;
-        case "9":
+        }
+        case "2" -> ui.display("Print Cashier");
+        case "3" -> ui.display("Print Coach");
+        case "9" -> {
           ui.display("Bye");
           keepRunning = false;
-          break;
-        default:
-          ui.display("Not valid number");
+        }
+        default -> ui.display("Not a valid option");
       }
     } while (keepRunning);
   }
@@ -47,6 +40,8 @@ public class Controller {
   public void foremanController() {
     String choice;
     boolean keepRunning;
+    fileHandler.createFile(ui);
+    fileHandler.readFile(ui, members, member);
 
     do {
       menu.printForemanMenu(ui);
@@ -55,25 +50,46 @@ public class Controller {
       keepRunning = true;
 
       switch (choice) {
-        case "1":
-          fileHandler.createFile(ui);
-          manageMembers.createNewMember(ui,member,members);
-          fileHandler.saveFile(members,ui);
-          break;
-        case "2":
-          fileHandler.readFile(ui,members,member);
-          manageMembers.printMembersList(members);
+        case "1" -> {
+          manageMembers.createNewMember(ui, member, members);
+          fileHandler.saveFile(members, ui);
+        }
+        case "2" -> manageMembers.printMembersList(members, ui);
 
-          break;
-        case "3":
-          manageMembers.deleteMember(ui,members);
-          break;
-        case "9":
+        case "3" -> manageMembers.deleteMember(ui, members);
+
+        case "9" -> {
           ui.display("Closing foreman menu");
           keepRunning = false;
-          break;
-        default:
-          ui.display("Not valid number");
+          menuController();
+        }
+        default -> ui.display("Not a valid option");
+      }
+    } while (keepRunning);
+  }
+
+  public void editMemberController() {
+    String choice;
+    boolean keepRunning;
+
+    do {
+    menu.editMemberMenu(ui);
+      ui.display("Enter number:");
+      choice = ui.scanString();
+      keepRunning = true;
+      switch (choice) {
+        case "1" -> {
+
+          keepRunning = false;
+
+        }
+        case "2" -> ui.display("Print Cashier");
+        case "3" -> ui.display("Print Coach");
+        case "9" -> {
+          ui.display("Bye");
+          keepRunning = false;
+        }
+        default -> ui.display("Not a valid option");
       }
     } while (keepRunning);
   }
