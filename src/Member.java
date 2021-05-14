@@ -26,11 +26,22 @@ Random rand = new Random();
   public Member() {
 
   }
+  //August
+  public String validateMemberShip() {
+    if (getAge() < 18) {
+      memberShipType = MEMBER_SHIP_TYPE[0];
+    } else if (getAge() > 18 && getAge() < 60)
+      memberShipType = MEMBER_SHIP_TYPE[1];
+    else {
+      memberShipType = MEMBER_SHIP_TYPE[2];
+    }
+    return memberShipType;
+  }
+
   // Jens set og get
 
   public void setName(String name) {
     this.name = name;
-
   }
 
   public String getName() {
@@ -62,18 +73,6 @@ Random rand = new Random();
   }
 
   public String getMemberShipType() {
-    return memberShipType;
-  }
-
-  //August
-  public String validateMemberShip() {
-    if (getAge() < 18) {
-      memberShipType = MEMBER_SHIP_TYPE[0];
-    } else if (getAge() > 18 && getAge() < 60)
-      memberShipType = MEMBER_SHIP_TYPE[1];
-    else {
-      memberShipType = MEMBER_SHIP_TYPE[2];
-    }
     return memberShipType;
   }
 
