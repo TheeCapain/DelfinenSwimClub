@@ -18,6 +18,12 @@ Scanner scan = new Scanner(System.in);
     return scan.nextInt();
   }
 
+  public int scannerBugFixer(){
+    int test = scanInt();
+    scanString();
+    return test;
+  }
+
   public String scanString() {
     return scan.nextLine();
   }

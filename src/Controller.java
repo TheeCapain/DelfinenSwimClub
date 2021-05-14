@@ -11,7 +11,6 @@ public class Controller {
 
   //August & Jens Controller and menu
   public void menuController() {
-    members.add(0,member);
     String choice;
     boolean keepRunning;
 
@@ -47,14 +46,15 @@ public class Controller {
     do {
       menu.printForemanMenu(ui);
       ui.display("Enter number:");
+      //Scannerbug
       choice = ui.scanString();
       keepRunning = true;
 
       switch (choice) {
         case "1" -> {
           manageMembers.createNewMember(ui, member, members);
-          members.remove(0);
           fileHandler.saveFile(members, ui);
+
 
         }
         case "2" -> manageMembers.printMembersList(members, ui);

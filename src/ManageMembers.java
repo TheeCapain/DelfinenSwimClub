@@ -9,8 +9,7 @@ public class ManageMembers {
     ui.display("Enter name");
     member.setName(ui.scanString());
     ui.display("Enter Age");
-    member.setAge(ui.scanInt());
-    ui.scanString();
+    member.setAge(ui.scannerBugFixer());
     member.setID(member.generateRandomId());
     member.setMemberStatus(true);
     member.setMemberCash(100);
@@ -33,16 +32,16 @@ public class ManageMembers {
     printMembersList(members, ui);
 
     ui.display("Which member do you want to delete");
-    int choice = ui.scanInt();
+    int choice = ui.scannerBugFixer();
+    //Index 0 correction 1 = 0
+    choice = choice-1;
+    //@TODO Spørg om man kan gøre dette uden try/Catch
     try {
-      if (members.get(choice) != null) {
         members.remove(choice);
         ui.display("Member Removed...");
-      } else if (members.remove(choice) == null){
-        ui.display("This nr is empty");
-      }
+
     } catch (IndexOutOfBoundsException e) {
-      ui.display("This nr is empty");
+      ui.display("There is no member on nr: " + (choice+1));
     }
 
 
@@ -53,10 +52,9 @@ public class ManageMembers {
     if (members.size() == 0) {
       ui.display("List is empty");
     } else
-
-      for (int i = 1; i < members.size(); i++) {
+      for (int i = 0; i < members.size(); i++) {
         ui.printFormatLines();
-        ui.display("MemberNR: " + i + " " + members.get(i).toString());
+        ui.display("MemberNR: " + (i+1) + " " + members.get(i).toString());
         ui.printFormatLines();
       }
 

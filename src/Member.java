@@ -9,7 +9,7 @@ public class Member {
   private String memberShipType;
   private boolean memberStatus;
   private int memberCash;
-Random rand = new Random();
+  Random rand = new Random();
 
   // Jens
   public Member(String name, int age, int ID,String memberShipType, boolean memberStatus, int memberCash) {
