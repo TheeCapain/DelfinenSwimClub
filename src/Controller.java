@@ -53,7 +53,9 @@ public class Controller {
       switch (choice) {
         case "1" -> {
           manageMembers.createNewMember(ui, member, members);
+          members.remove(0);
           fileHandler.saveFile(members, ui);
+
         }
         case "2" -> manageMembers.printMembersList(members, ui);
 
