@@ -1,3 +1,3 @@
-User 1 0 Juniorswimmer true 0
-John 23 8162 Seniorswimmer true 100
-August 23 4417 Seniorswimmer true 100
+August 26 582 Seniorswimmer true 100
+svend 26 58 Seniorswimmer true 100
+kurt 26 5 Seniorswimmer true 100
