@@ -19,7 +19,6 @@ public class ManageMembers {
 
   }
 
-
   public void addMemberToList(Member member, ArrayList<Member> members) {
     members.add(new Member(member.getName(), member.getAge(), member.getID(), member.getMemberShipType(), member.getMemberStatus(), member.getMemberCash()));
 
@@ -35,7 +34,6 @@ public class ManageMembers {
     int choice = ui.scannerBugFixer();
     //Index 0 correction 1 = 0
     choice = choice-1;
-    //@TODO Spørg om man kan gøre dette uden try/Catch
     try {
         members.remove(choice);
         ui.display("Member Removed...");
@@ -58,6 +56,38 @@ public class ManageMembers {
         ui.printFormatLines();
       }
 
+  }
+
+  public void editMemberName(Member member, Ui ui) {
+    ui.display("What should the new Name be?: ");
+    ui.display("Cancel by pressing 0");
+    String newName = ui.scanString();
+
+    if (newName.equals("0")) {
+      ui.display("Returning to menu");
+    } else {
+      member.setName(newName);
+      ui.display("Name changed...");
+    }
+
+
+  }
+
+  public void editMemberStatus() {
+
+
+  }
+
+  public void editMemberAge(Member member, Ui ui) {
+    ui.display("Enter new Age:");
+    ui.display("Enter 0 to cancel");
+    int newAge = ui.scannerBugFixer();
+    if (newAge == 0){
+      ui.display("Returning to menu");
+    } else {
+      member.setAge(newAge);
+      ui.display("Age changed");
+    }
   }
 
 }

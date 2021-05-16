@@ -68,7 +68,6 @@ public class FileHandler {
         members.add(new Member(member.getName(), member.getAge(), member.getID(),
             member.getMemberShipType(), member.getMemberStatus(), member.getMemberCash()));
 
-
       }
       scanFile.close();
 
