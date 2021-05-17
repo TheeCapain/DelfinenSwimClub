@@ -24,9 +24,7 @@ public class Controller {
       keepRunning = true;
 
       switch (choice) {
-        case "1" -> {
-          foremanController();
-        }
+        case "1" -> foremanController();
         case "2" -> ui.display("Print Cashier");
         case "3" -> ui.display("Print Coach");
         case "9" -> {
@@ -55,7 +53,6 @@ public class Controller {
           manageMembers.createNewMember(ui, member, members);
           fileHandler.saveFile(members, ui);
 
-
         }
         case "2" -> manageMembers.printMembersList(members, ui);
 
@@ -63,9 +60,7 @@ public class Controller {
           manageMembers.deleteMember(ui, members);
           fileHandler.saveFile(members, ui);
         }
-        case "4" ->{
-          editMemberMenu();
-        }
+        case "4" -> editMemberMenu();
         case "9" -> {
           ui.display("Closing foreman menu");
           keepRunning = false;
@@ -85,7 +80,7 @@ public class Controller {
       try {
         ui.display("Which member would you like to edit? Enter memberNR: ");
         memberChoice = ui.scannerBugFixer();
-      } catch (InputMismatchException e){
+      } catch (InputMismatchException e) {
         ui.display("Must be a memberNr");
       }
 
@@ -96,23 +91,24 @@ public class Controller {
 
 
       switch (choice) {
-        case "1" ->
+        case "1" -> {
           manageMembers.editMemberName(members.get(memberChoice - 1), ui);
+          fileHandler.saveFile(members, ui);
+        }
 
 
-
-        case "2" ->
+        case "2" -> {
           manageMembers.editMemberAge(members.get(memberChoice - 1), ui);
-
+          fileHandler.saveFile(members, ui);
+        }
 
         case "3" -> {
           manageMembers.editMemberStatus();
           ui.display("This path has not been made yet");
         }
 
-        case "9" -> {
-          keepRunning = false;
-        }
+        case "9" -> keepRunning = false;
+
       }
     } while (keepRunning);
   }
