@@ -1,4 +1,5 @@
 import java.util.ArrayList;
+import java.util.InputMismatchException;
 
 public class Controller {
   ArrayList<Member> members = new ArrayList<>();
@@ -11,6 +12,8 @@ public class Controller {
 
   //August & Jens Controller and menu
   public void menuController() {
+    fileHandler.createFile(ui);
+    fileHandler.readFile(ui, members, member);
     String choice;
     boolean keepRunning;
 
@@ -21,10 +24,7 @@ public class Controller {
       keepRunning = true;
 
       switch (choice) {
-        case "1" -> {
-          keepRunning = false;
-          foremanController();
-        }
+        case "1" -> foremanController();
         case "2" -> ui.display("Print Cashier");
         case "3" -> ui.display("Print Coach");
         case "9" -> {
@@ -40,8 +40,6 @@ public class Controller {
   public void foremanController() {
     String choice;
     boolean keepRunning;
-    fileHandler.createFile(ui);
-    fileHandler.readFile(ui, members, member);
 
     do {
       menu.printForemanMenu(ui);
@@ -55,7 +53,6 @@ public class Controller {
           manageMembers.createNewMember(ui, member, members);
           fileHandler.saveFile(members, ui);
 
-
         }
         case "2" -> manageMembers.printMembersList(members, ui);
 
@@ -63,10 +60,56 @@ public class Controller {
           manageMembers.deleteMember(ui, members);
           fileHandler.saveFile(members, ui);
         }
+        case "4" -> editMemberController();
         case "9" -> {
           ui.display("Closing foreman menu");
           keepRunning = false;
         }
+      }
+    } while (keepRunning);
+  }
+
+  //August
+  public void editMemberController() {
+    String choice;
+    int memberChoice = 0;
+    boolean keepRunning = true;
+
+
+    do {
+      manageMembers.printMembersList(members, ui);
+      try {
+        ui.display("Which member would you like to edit? Enter memberNR: ");
+        memberChoice = ui.scannerBugFixer();
+      } catch (InputMismatchException e) {
+        ui.display("Must be a memberNr");
+      }
+
+
+      ui.display("What would you like to change?");
+      menu.printEditMemberMenu(ui);
+      choice = ui.scanString();
+
+
+      switch (choice) {
+        case "1" -> {
+          manageMembers.editMemberName(members.get(memberChoice - 1), ui);
+          fileHandler.saveFile(members, ui);
+          break;
+        }
+
+        case "2" -> {
+          manageMembers.editMemberAge(members.get(memberChoice - 1), ui);
+          fileHandler.saveFile(members, ui);
+        }
+
+        case "3" -> {
+          manageMembers.editMemberStatus(members.get(memberChoice -1), ui);
+          fileHandler.saveFile(members, ui);
+        }
+
+        case "9" -> keepRunning = false;
+
       }
     } while (keepRunning);
   }

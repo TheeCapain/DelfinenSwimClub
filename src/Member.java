@@ -7,12 +7,13 @@ public class Member {
   private int ID;
   private final String[] MEMBER_SHIP_TYPE = {"Juniorswimmer","Seniorswimmer","Senior60"};
   private String memberShipType;
-  private boolean memberStatus;
+  private final String[] MEMBER_STATUS = {"Active","Passive"};
+  private String memberStatus;
   private int memberCash;
   Random rand = new Random();
 
   // Jens
-  public Member(String name, int age, int ID,String memberShipType, boolean memberStatus, int memberCash) {
+  public Member(String name, int age, int ID,String memberShipType, String memberStatus, int memberCash) {
     this.name = name;
     this.age = age;
     this.ID = ID;
@@ -37,6 +38,17 @@ public class Member {
     }
     return memberShipType;
   }
+  public String memberStatusFinal() {
+    //Active","Passive
+    int finalStatus = rand.nextInt(1+1);
+    if (finalStatus == 0){
+      memberStatus = MEMBER_STATUS[0];
+    } else if (finalStatus == 1) {
+      memberStatus = MEMBER_STATUS[1];
+    }
+   return memberStatus;
+  }
+
 
   // Jens set og get
 
@@ -76,11 +88,11 @@ public class Member {
     return memberShipType;
   }
 
-  public void setMemberStatus(boolean memberStatus) {
+  public void setMemberStatus(String memberStatus) {
     this.memberStatus = memberStatus;
   }
 
-  public boolean getMemberStatus() {
+  public String getMemberStatus() {
     return memberStatus;
   }
 

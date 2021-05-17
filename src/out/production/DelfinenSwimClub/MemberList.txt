@@ -1,3 +1,4 @@
-August 26 582 Seniorswimmer true 100
-svend 26 58 Seniorswimmer true 100
-kurt 26 5 Seniorswimmer true 100
+kurt 465 9555 Senior60 Passive 100
+sdsd 52 1682 Seniorswimmer Active 100
+sdsd 5456 3767 Senior60 Passive 100
+sdsds 563 6680 Senior60 Passive 100

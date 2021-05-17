@@ -61,13 +61,12 @@ public class FileHandler {
         member.setAge(scanFile.nextInt());
         member.setID(scanFile.nextInt());
         member.setMemberShipType(scanFile.next());
-        member.setMemberStatus(scanFile.nextBoolean());
+        member.setMemberStatus(scanFile.next());
         member.setMemberCash(scanFile.nextInt());
 
 
         members.add(new Member(member.getName(), member.getAge(), member.getID(),
             member.getMemberShipType(), member.getMemberStatus(), member.getMemberCash()));
-
 
       }
       scanFile.close();
