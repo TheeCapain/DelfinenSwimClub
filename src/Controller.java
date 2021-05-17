@@ -12,6 +12,8 @@ public class Controller {
 
   //August & Jens Controller and menu
   public void menuController() {
+    fileHandler.createFile(ui);
+    fileHandler.readFile(ui, members, member);
     String choice;
     boolean keepRunning;
 
@@ -23,7 +25,6 @@ public class Controller {
 
       switch (choice) {
         case "1" -> {
-          keepRunning = false;
           foremanController();
         }
         case "2" -> ui.display("Print Cashier");
@@ -41,8 +42,6 @@ public class Controller {
   public void foremanController() {
     String choice;
     boolean keepRunning;
-    fileHandler.createFile(ui);
-    fileHandler.readFile(ui, members, member);
 
     do {
       menu.printForemanMenu(ui);
@@ -97,17 +96,14 @@ public class Controller {
 
 
       switch (choice) {
-        case "1" -> {
+        case "1" ->
           manageMembers.editMemberName(members.get(memberChoice - 1), ui);
-          fileHandler.saveFile(members, ui);
-          keepRunning = false;
-        }
 
-        case "2" -> {
+
+
+        case "2" ->
           manageMembers.editMemberAge(members.get(memberChoice - 1), ui);
-          fileHandler.saveFile(members, ui);
-          keepRunning = false;
-        }
+
 
         case "3" -> {
           manageMembers.editMemberStatus();
@@ -116,7 +112,6 @@ public class Controller {
 
         case "9" -> {
           keepRunning = false;
-          menuController();
         }
       }
     } while (keepRunning);

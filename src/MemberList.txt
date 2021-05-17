@@ -1,4 +1,3 @@
 August 26 5822 Seniorswimmer true 100
-svend 26 5318 Seniorswimmer true 100
 karl 51 5142 Seniorswimmer true 100
-Jensen 42 1677 Senior60 true 100
+Jens 26 3726 Seniorswimmer true 100
