@@ -96,26 +96,17 @@ public class ManageMembers {
   public void editMemberAge(Member member, Ui ui) {
     ui.display("Enter new Age:");
     ui.display("Enter 0 to cancel");
-    boolean isRunning = true;
+    int newAge;
 
-    while (isRunning) {
-      int newAge;
+    while (!scan.hasNextInt()) {
 
-      if (!scan.hasNextInt()) {
-
-        ui.display("Enter a nr");
-        newAge = scan.nextInt();
-      } else if (scan.hasNextInt()) {
-        ui.display("Returning to menu");
-        isRunning =false;
-      } else {
-        newAge = scan.nextInt();
-        member.setAge(newAge);
-        ui.display("Age changed");
-        ui.display("wwaazzaa");
-        isRunning =false;
-      }
+      ui.display("Enter a nr");
+      scan.nextLine();
     }
+    newAge = scan.nextInt();
+    member.setAge(newAge);
+    ui.display("Age changed");
   }
 }
+
 
