@@ -7,6 +7,7 @@ public class Controller {
     FileHandler fileHandler = new FileHandler();
     Member member = new Member();
     ForemanController foreman = new ForemanController();
+    CashierController cashierController = new CashierController();
     Cashier cashier = new Cashier();
     CoachController coach = new CoachController();
     Menu menu = new Menu();
@@ -37,7 +38,5 @@ public class Controller {
             }
         } while (keepRunning);
     }
-
-
 }
 
