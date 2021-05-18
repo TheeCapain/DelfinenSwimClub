@@ -1,117 +1,38 @@
 import java.util.ArrayList;
-import java.util.InputMismatchException;
 
 public class Controller {
-  ArrayList<Member> members = new ArrayList<>();
-  Ui ui = new Ui();
-  ManageMembers manageMembers = new ManageMembers();
-  Menu menu = new Menu();
-  FileHandler fileHandler = new FileHandler();
-  Member member = new Member();
+    Ui ui = new Ui();
+    ArrayList<Member> members = new ArrayList<>();
+    ForemanController foreman = new ForemanController();
+    CashierController cashier = new CashierController();
+    CoachController coach = new CoachController();
+    Menu menu = new Menu();
+
+    //August & Jens Controller and menu
+    public void menuController() {
+
+        String choice;
+        boolean keepRunning;
+
+        do {
+            menu.printMainMenu(ui);
+            ui.display("Enter number:");
+            choice = ui.scanString();
+            keepRunning = true;
+
+            switch (choice) {
+                case "1" -> foreman.initializeForeman(ui, members, menu);
+                case "2" -> cashier.cashierController();
+                case "3" -> coach.coachController();
+                case "9" -> {
+                    ui.display("Bye");
+                    keepRunning = false;
+                }
+                default -> ui.display("Not a valid option");
+            }
+        } while (keepRunning);
+    }
 
 
-  //August & Jens Controller and menu
-  public void menuController() {
-    fileHandler.createFile(ui);
-    fileHandler.readFile(ui, members, member);
-    String choice;
-    boolean keepRunning;
-
-    do {
-      menu.printMainMenu(ui);
-      ui.display("Enter number:");
-      choice = ui.scanString();
-      keepRunning = true;
-
-      switch (choice) {
-        case "1" -> foremanController();
-        case "2" -> ui.display("Print Cashier");
-        case "3" -> ui.display("Print Coach");
-        case "9" -> {
-          ui.display("Bye");
-          keepRunning = false;
-        }
-        default -> ui.display("Not a valid option");
-      }
-    } while (keepRunning);
-  }
-
-  //August & Jens Controller and menu
-  public void foremanController() {
-    String choice;
-    boolean keepRunning;
-
-    do {
-      menu.printForemanMenu(ui);
-      ui.display("Enter number:");
-      //Scannerbug
-      choice = ui.scanString();
-      keepRunning = true;
-
-      switch (choice) {
-        case "1" -> {
-          manageMembers.createNewMember(ui, member, members);
-          fileHandler.saveFile(members, ui);
-
-        }
-        case "2" -> manageMembers.printMembersList(members, ui);
-
-        case "3" -> {
-          manageMembers.deleteMember(ui, members);
-          fileHandler.saveFile(members, ui);
-        }
-        case "4" -> editMemberController();
-        case "9" -> {
-          ui.display("Closing foreman menu");
-          keepRunning = false;
-        }
-      }
-    } while (keepRunning);
-  }
-
-  //August
-  public void editMemberController() {
-    String choice;
-    int memberChoice = 0;
-    boolean keepRunning = true;
-
-
-    do {
-      manageMembers.printMembersList(members, ui);
-      try {
-        ui.display("Which member would you like to edit? Enter memberNR: ");
-        memberChoice = ui.scannerBugFixer();
-      } catch (InputMismatchException e) {
-        ui.display("Must be a memberNr");
-      }
-
-
-      ui.display("What would you like to change?");
-      menu.printEditMemberMenu(ui);
-      choice = ui.scanString();
-
-
-      switch (choice) {
-        case "1" -> {
-          manageMembers.editMemberName(members.get(memberChoice - 1), ui);
-          fileHandler.saveFile(members, ui);
-          break;
-        }
-
-        case "2" -> {
-          manageMembers.editMemberAge(members.get(memberChoice - 1), ui);
-          fileHandler.saveFile(members, ui);
-        }
-
-        case "3" -> {
-          manageMembers.editMemberStatus(members.get(memberChoice -1), ui);
-          fileHandler.saveFile(members, ui);
-        }
-
-        case "9" -> keepRunning = false;
-
-      }
-    } while (keepRunning);
-  }
 }
 
