@@ -4,17 +4,17 @@ import java.util.InputMismatchException;
 public class ForemanController {
 
     ManageMembers manageMembers = new ManageMembers();
-    FileHandler fileHandler = new FileHandler();
+
     Member member = new Member();
 
     //August & Jens Controller and menu
-    public void initializeForeman(Ui ui, ArrayList<Member> members, Menu menu) {
+    public void initializeForeman(Ui ui, ArrayList<Member> members, Menu menu,FileHandler fileHandler) {
         fileHandler.createFile(ui);
         fileHandler.readFile(ui, members, member);
-        foremanController(ui,menu,members);
+        foremanController(ui,menu,members,fileHandler);
     }
 
-    public void foremanController(Ui ui, Menu menu,ArrayList<Member>members) {
+    public void foremanController(Ui ui, Menu menu,ArrayList<Member>members,FileHandler fileHandler) {
         String choice;
         boolean keepRunning;
 
@@ -36,7 +36,7 @@ public class ForemanController {
                     manageMembers.deleteMember(ui, members);
                     fileHandler.saveFile(members, ui);
                 }
-                case "4" -> editMemberController(ui, menu,members);
+                case "4" -> editMemberController(ui, menu,members,fileHandler);
                 case "9" -> {
                     ui.display("Closing foreman menu");
                     keepRunning = false;
@@ -46,7 +46,7 @@ public class ForemanController {
     }
 
     //August
-    public void editMemberController(Ui ui, Menu menu,ArrayList<Member>members) {
+    public void editMemberController(Ui ui, Menu menu,ArrayList<Member>members,FileHandler fileHandler) {
         String choice;
         int memberChoice = 0;
         boolean keepRunning = true;
