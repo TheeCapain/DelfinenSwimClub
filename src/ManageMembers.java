@@ -1,5 +1,4 @@
 import java.util.ArrayList;
-import java.util.InputMismatchException;
 import java.util.Scanner;
 
 //August
@@ -59,7 +58,6 @@ public class ManageMembers {
         ui.display("MemberNR: " + (i + 1) + " " + members.get(i).toString());
         ui.printFormatLines();
       }
-
   }
 
   public void editMemberName(Member member, Ui ui) {
@@ -103,7 +101,9 @@ public class ManageMembers {
       ui.display("Enter a nr");
       scan.nextLine();
     }
+    //Scannerbug fixed
     newAge = scan.nextInt();
+    scan.nextLine();
     member.setAge(newAge);
     ui.display("Age changed");
   }

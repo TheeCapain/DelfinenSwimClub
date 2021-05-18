@@ -1,4 +1,4 @@
 kurt 465 9555 Senior60 Passive 100
 sdsd 52 1682 Seniorswimmer Active 100
 sdsd 5456 3767 Senior60 Passive 100
-sdsds 563 6680 Senior60 Passive 100
+sdsds 22 6680 Seniorswimmer Passive 100
