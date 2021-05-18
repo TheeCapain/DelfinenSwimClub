@@ -3,10 +3,15 @@ import java.util.ArrayList;
 public class Controller {
     Ui ui = new Ui();
     ArrayList<Member> members = new ArrayList<>();
+    ArrayList<Member> activeMember = new ArrayList<>();
+    FileHandler fileHandler = new FileHandler();
+    Member member = new Member();
     ForemanController foreman = new ForemanController();
-    CashierController cashier = new CashierController();
+    Cashier cashier = new Cashier();
     CoachController coach = new CoachController();
     Menu menu = new Menu();
+
+
 
     //August & Jens Controller and menu
     public void menuController() {
@@ -21,8 +26,8 @@ public class Controller {
             keepRunning = true;
 
             switch (choice) {
-                case "1" -> foreman.initializeForeman(ui, members, menu);
-                //case "2" -> cashier.cashierController(ui,members);
+                case "1" -> foreman.initializeForeman(ui, members, menu,fileHandler);
+                case "2" -> cashier.sortActiveMember(ui,members,activeMember,member,fileHandler);
                 case "3" -> coach.coachController();
                 case "9" -> {
                     ui.display("Bye");
