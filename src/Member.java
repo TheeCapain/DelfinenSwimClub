@@ -49,7 +49,12 @@ public class Member {
    return memberStatus;
   }
 
-
+  public int generateRandomId(){
+    return rand.nextInt(9999-1000)+1000;
+  }
+  public int generateRandomCash() {
+    return rand.nextInt(2000-200) + 200;
+  }
   // Jens set og get
 
   public void setName(String name) {
@@ -70,10 +75,6 @@ public class Member {
 
   public void setID(int ID) {
     this.ID = ID;
-  }
-
-  public int generateRandomId(){
-    return rand.nextInt(9999-1000)+1000;
   }
 
   public int getID() {
@@ -112,7 +113,7 @@ public class Member {
         "\nID: " + ID +
         "\nMembershipType: " + memberShipType+
         "\nMemberStatus: " + memberStatus +
-        "\nMemberCash: " + memberCash + "\n";
+        "\nMemberCash: " + memberCash + " kr." + "\n";
   }
 }
 

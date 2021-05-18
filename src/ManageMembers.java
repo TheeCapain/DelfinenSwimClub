@@ -14,7 +14,7 @@ public class ManageMembers {
     member.setAge(ui.scannerBugFixer());
     member.setID(member.generateRandomId());
     member.setMemberStatus(member.memberStatusFinal());
-    member.setMemberCash(100);
+    member.setMemberCash(member.generateRandomCash());
     member.setMemberShipType(member.validateMemberShip());
     addMemberToList(member, members);
 

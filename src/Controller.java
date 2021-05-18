@@ -22,7 +22,7 @@ public class Controller {
 
             switch (choice) {
                 case "1" -> foreman.initializeForeman(ui, members, menu);
-                case "2" -> cashier.cashierController();
+                //case "2" -> cashier.cashierController(ui,members);
                 case "3" -> coach.coachController();
                 case "9" -> {
                     ui.display("Bye");
