@@ -15,7 +15,8 @@ public class Controller {
 
     //August & Jens Controller and menu
     public void menuController() {
-
+        fileHandler.readFile(ui,members,member);
+        cashier.sortActiveMember(ui,members,activeMember,member,fileHandler);
         String choice;
         boolean keepRunning;
 
@@ -28,7 +29,7 @@ public class Controller {
             switch (choice) {
                 case "1" -> foreman.initializeForeman(ui, members, menu,fileHandler);
                 case "2" -> cashier.sortActiveMember(ui,members,activeMember,member,fileHandler);
-                case "3" -> coach.coachController();
+                case "3" -> coach.coachInitializer(ui, activeMember,menu);
                 case "9" -> {
                     ui.display("Bye");
                     keepRunning = false;
