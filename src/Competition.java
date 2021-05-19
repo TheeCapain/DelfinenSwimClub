@@ -32,7 +32,7 @@ public class Competition {
     }
   }
 
-  public void assignJuniorSwimTeams(Ui ui, ArrayList<Member> juniorCompetitors, ArrayList<Member> seniorCompetiors, Competitor competitor, ArrayList<Competitor> crawl, ArrayList<Competitor> backCrawl, ArrayList<Competitor> breast, ArrayList<Competitor> butterfly) {
+  public void assignSwimTeams(ArrayList<Member> juniorCompetitors, ArrayList<Member> seniorCompetiors, Competitor competitor, ArrayList<Competitor> crawl, ArrayList<Competitor> backCrawl, ArrayList<Competitor> breast, ArrayList<Competitor> butterfly) {
     for (int i = 0; i < juniorCompetitors.size(); i++) {
       competitor.setName(juniorCompetitors.get(i).getName());
       competitor.setID(juniorCompetitors.get(i).getID());
@@ -52,8 +52,10 @@ public class Competition {
           butterfly.add(new Competitor(competitor.getName(), competitor.getID(), competitor.getDiscipline(), competitor.getLocalDateTime(), competitor.getTimer()));
         }
       }
+
     }
   }
+
 
   public void printButterfly(Ui ui, ArrayList<Competitor> butterfly) {
     for (int i = 0; i < butterfly.size(); i++) {
@@ -70,6 +72,7 @@ public class Competition {
       ui.printFormatLines();
     }
   }
+
   public void printBreast(Ui ui, ArrayList<Competitor> breast) {
     for (int i = 0; i < breast.size(); i++) {
       ui.printFormatLines();
@@ -77,6 +80,7 @@ public class Competition {
       ui.printFormatLines();
     }
   }
+
   public void printBackCrawl(Ui ui, ArrayList<Competitor> BackCrawl) {
     for (int i = 0; i < BackCrawl.size(); i++) {
       ui.printFormatLines();

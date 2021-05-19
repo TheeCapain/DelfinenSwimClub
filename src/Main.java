@@ -7,7 +7,7 @@ public class Main {
     new Main().run();
     }
     public void run() {
-        Controller controller = new Controller();
-        controller.menuController();
+     Controller controller = new Controller();
+     controller.runController();
     }
 }

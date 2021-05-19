@@ -1,12 +1,4 @@
-Jon 12 4844 Juniorswimmer Active 1728
-sad 12 5761 Juniorswimmer Active 1988
-asdge 3 5449 Juniorswimmer Active 1583
-mathilde 2 5748 Juniorswimmer Active 1903
-August 2 8785 Juniorswimmer Active 1530
-Svend 5 6518 Juniorswimmer Active 904
-lil 2 9549 Juniorswimmer Active 908
-asd 1 4218 Juniorswimmer Active 805
-sdf 1 3660 Juniorswimmer Active 254
-fgh 1 1005 Juniorswimmer Active 1336
-qwe 12 1475 Juniorswimmer Active 1250
-fj 3 2331 Juniorswimmer Active 806
+August 1 2520 Juniorswimmer Active 1276
+Mathilde 1 6462 Juniorswimmer Active 385
+Jens 2 1584 Juniorswimmer Active 401
+kurt 2 5727 Juniorswimmer Active 1425
