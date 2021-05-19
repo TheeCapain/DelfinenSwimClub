@@ -2,7 +2,7 @@ import java.util.ArrayList;
 
 public class CashierController {
 CashHanlder cashHanlder = new CashHanlder();
-  public void cashierController(Ui ui,Menu menu) {
+  public void cashierController(Ui ui, Menu menu, ArrayList<Member> activeMembers) {
 
     String choice;
     boolean keepRunning;
