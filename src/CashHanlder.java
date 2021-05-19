@@ -16,7 +16,7 @@ public class CashHanlder {
         under18 = 1000;
 
       }
-      
+
     }
 
   }

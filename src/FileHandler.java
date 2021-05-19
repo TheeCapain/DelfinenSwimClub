@@ -38,7 +38,8 @@ public class FileHandler {
         print += member.getID() + " ";
         print += member.getMemberShipType() + " ";
         print += member.getMemberStatus() + " ";
-        print += member.getMemberCash();
+        print += member.getMemberCash() + " ";
+        print += member.getYearlyPayment();
 
         printStream.println(print);
 
@@ -63,6 +64,7 @@ public class FileHandler {
         member.setMemberShipType(scanFile.next());
         member.setMemberStatus(scanFile.next());
         member.setMemberCash(scanFile.nextInt());
+        member.setYearlyPayment(scanFile.nextInt());
 
 
         members.add(new Member(member.getName(), member.getAge(), member.getID(),
