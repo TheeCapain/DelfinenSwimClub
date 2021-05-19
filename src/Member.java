@@ -1,4 +1,5 @@
 import java.util.Random;
+
 //For aktive medlemmer er kontingentet for ungdomssvømmere (under 18 år) 1000 kr. årligt,
 //For seniorsvømmere (18 år og over) 1600 kr. årligt.
 //For medlemmer over 60 år gives der 25 % rabat af seniortaksten.
@@ -8,19 +9,19 @@ public class Member {
   private String name;
   private int age;
   private int ID;
-  private final String[] MEMBER_SHIP_TYPE = {"Juniorswimmer","Seniorswimmer","SeniorOver60"};
+  private final String[] MEMBER_SHIP_TYPE = {"Juniorswimmer", "Seniorswimmer", "SeniorOver60"};
   private String memberShipType;
-  private final String[] MEMBER_STATUS = {"Active","Passive"};
+  private final String[] MEMBER_STATUS = {"Active", "Passive"};
   private String memberStatus;
   private int memberCash;
-  //Members over the age of 60 are given a 25% discount on the senior = 1600. discunt wil be = 400kr.
-  private int discuntOver60 = 1600 * 25/100;
-  private final int[]   YEARLY_PAYMENT = {1000,1600,1600-discuntOver60,500};
+  //Members over the age of 60 are given a 25% discount on the senior = 1600kr.one year. discunt will be = 400kr.
+  private final int Discunt_OVER_60 = 1600 * 25 / 100;
+  private final int[] YEARLY_PAYMENT = {1000, 1600, 1600 - Discunt_OVER_60, 500};
   private int yearlyPayment;
   Random rand = new Random();
 
   // Jens
-  public Member(String name, int age, int ID,String memberShipType, String memberStatus, int memberCash, int yearlyPayment) {
+  public Member(String name, int age, int ID, String memberShipType, String memberStatus, int memberCash, int yearlyPayment) {
     this.name = name;
     this.age = age;
     this.ID = ID;
@@ -46,40 +47,37 @@ public class Member {
     }
     return memberShipType;
   }
+
   public String memberStatusFinal() {
     //Active","Passive
-    int finalStatus = rand.nextInt(1+1);
-    if (finalStatus == 0){
+    int finalStatus = rand.nextInt(1 + 1);
+    if (finalStatus == 0) {
       memberStatus = MEMBER_STATUS[0];
     } else if (finalStatus == 1) {
       memberStatus = MEMBER_STATUS[1];
     }
-   return memberStatus;
+    return memberStatus;
   }
 
-  public int generateRandomId(){
-    return rand.nextInt(9999-1000)+1000;
+  public int generateRandomId() {
+    return rand.nextInt(9999 - 1000) + 1000;
   }
+
   public int generateRandomCash() {
-    return rand.nextInt(2000-200) + 200;
+    return rand.nextInt(2000 - 200) + 200;
   }
-  //Jens
- /* public int discuntOver60(){
-    int seniorPay = 1600;
-    //Members over the age of 60 are given a 25% discount on the senior rate.
-    this.discuntOver60 = seniorPay * 25/100;
-    return 1;
-  }*/
+
   //Jens
   public int addMembershipPayment() {
     if (getAge() < 18 && getMemberStatus().equals("Active")) {
       yearlyPayment = YEARLY_PAYMENT[0];
-    } else if (getAge() > 18 && getAge() <= 60 && getMemberStatus().equals("Active") ) {
+
+    } else if (getAge() > 18 && getAge() <= 60 && getMemberStatus().equals("Active")) {
       yearlyPayment = YEARLY_PAYMENT[1];
-    } else if (getAge() > 60 && getMemberStatus().equals("Active")){
-      int seniorPay = 1600;
-      //Members over the age of 60 are given a 25% discount on the senior rate = 400kr.
+
+    } else if (getAge() > 60 && getMemberStatus().equals("Active")) {
       yearlyPayment = YEARLY_PAYMENT[2];
+
     } else {
       yearlyPayment = YEARLY_PAYMENT[3];
     }
@@ -134,9 +132,11 @@ public class Member {
   public int getMemberCash() {
     return memberCash;
   }
+
   public void setYearlyPayment(int yearlyPayment) {
     this.yearlyPayment = yearlyPayment;
   }
+
   public int getYearlyPayment() {
     return yearlyPayment;
   }
@@ -145,12 +145,12 @@ public class Member {
   public String toString() {
     return
         "\nName: " + name +
-        "\nAge: " + age +
-        "\nID: " + ID +
-        "\nMembershipType: " + memberShipType+
-        "\nMemberStatus: " + memberStatus +
-        "\nMemberCash: " + memberCash + " kr." +
-        "\nYearlyPayment: " + yearlyPayment + " kr.";
+            "\nAge: " + age +
+            "\nID: " + ID +
+            "\nMembershipType: " + memberShipType +
+            "\nMemberStatus: " + memberStatus +
+            "\nMemberCash: " + memberCash + " kr." +
+            "\nYearlyPayment: " + yearlyPayment + " kr.";
   }
 }
 
