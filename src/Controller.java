@@ -30,8 +30,13 @@ public void runController(){
 
       switch (choice) {
         case "1" -> foreman.initializeForeman(ui, members, menu, fileHandler);
+<<<<<<< HEAD
         //case "2" -> cashier.cashierController();
         case "3" -> coach.coachInitializer(activeMembers,menu);
+=======
+        case "3" -> coach.coachInitializer(activeMembers,menu);
+        case "2" -> cashier.cashierController(ui, menu,activeMembers);
+>>>>>>> 12a53f7dc05001a8614b6222bdb2f68737369fef
         case "9" -> {
           ui.display("Bye");
           keepRunning = false;
