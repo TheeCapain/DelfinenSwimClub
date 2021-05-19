@@ -2,8 +2,6 @@ import java.util.ArrayList;
 
 public class Controller {
   Ui ui = new Ui();
-  ArrayList<Member> juniorCompetitors = new ArrayList<>();
-  ArrayList<Member> seniorCompetitors = new ArrayList<>();
   ArrayList<Member> members = new ArrayList<>();
   ArrayList<Member> activeMembers = new ArrayList<>();
   FileHandler fileHandler = new FileHandler();
@@ -11,12 +9,16 @@ public class Controller {
   ForemanController foreman = new ForemanController();
   CashierController cashier = new CashierController();
   CoachController coach = new CoachController();
+  CashHanlder cashandler = new CashHanlder();
   Menu menu = new Menu();
 
-
+public void runController(){
+  fileHandler.readFile(ui, members, member);
+  cashandler.sortActiveMember(ui,members,activeMembers,member,fileHandler);
+  menuController();
+}
   //August & Jens Controller and menu
   public void menuController() {
-    fileHandler.readFile(ui, members, member);
     String choice;
     boolean keepRunning;
 
@@ -29,7 +31,9 @@ public class Controller {
       switch (choice) {
         case "1" -> foreman.initializeForeman(ui, members, menu, fileHandler);
         case "2" -> cashier.cashierController(ui, menu,activeMembers);
-        case "3" -> coach.coachInitializer(ui,activeMembers,menu,juniorCompetitors,seniorCompetitors);
+        case "3" -> {
+          coach.coachInitializer(activeMembers,menu);
+        }
         case "9" -> {
           ui.display("Bye");
           keepRunning = false;

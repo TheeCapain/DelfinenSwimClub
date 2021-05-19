@@ -10,7 +10,6 @@ public class ForemanController {
     //August & Jens Controller and menu
     public void initializeForeman(Ui ui, ArrayList<Member> members, Menu menu,FileHandler fileHandler) {
         fileHandler.createFile(ui);
-        fileHandler.readFile(ui, members, member);
         foremanController(ui,menu,members,fileHandler);
     }
 
