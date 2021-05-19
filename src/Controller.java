@@ -7,8 +7,7 @@ public class Controller {
   FileHandler fileHandler = new FileHandler();
   Member member = new Member();
   ForemanController foreman = new ForemanController();
-  CashierController cashierController = new CashierController();
-  Cashier cashier = new Cashier();
+  CashierController cashier = new CashierController();
   CoachController coach = new CoachController();
   Menu menu = new Menu();
 
@@ -16,7 +15,6 @@ public class Controller {
   //August & Jens Controller and menu
   public void menuController() {
     fileHandler.readFile(ui, members, member);
-    cashier.sortActiveMember(ui, members, activeMembers, member, fileHandler);
     String choice;
     boolean keepRunning;
 
@@ -28,8 +26,8 @@ public class Controller {
 
       switch (choice) {
         case "1" -> foreman.initializeForeman(ui, members, menu, fileHandler);
-        case "2" -> cashierController.cashierController(ui, menu);
-        case "3" -> coach.coachController();
+        case "2" -> cashier.cashierController(ui, menu,activeMembers);
+        case "3" -> coach.coachInitializer(ui,activeMembers,menu);
         case "9" -> {
           ui.display("Bye");
           keepRunning = false;

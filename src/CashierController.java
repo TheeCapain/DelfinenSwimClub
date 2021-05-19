@@ -1,6 +1,9 @@
-public class CashierController {
+import java.util.ArrayList;
 
-  public void cashierController(Ui ui, Menu menu) {
+public class CashierController {
+CashHanlder cashHanlder = new CashHanlder();
+  public void cashierController(Ui ui, Menu menu, ArrayList<Member> activeMembers) {
+
     String choice;
     boolean keepRunning;
     // "1. Active Members","2. Passive Members"," Debt Members"};
@@ -14,6 +17,7 @@ public class CashierController {
       switch (choice) {
         case "1":
           ui.display("Active Members total");
+          cashHanlder.ActiveMemberTotal(activeMembers);
           break;
         case "2":
           ui.display("Passive Members total");

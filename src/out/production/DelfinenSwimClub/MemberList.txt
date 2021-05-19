@@ -1,9 +1,0 @@
-ko 46 5518 Seniorswimmer Active 1669
-so 85 8642 Senior60 Active 1806
-kost 85 4321 Senior60 Passive 809
-sol 56464664 6763 Senior60 Active 488
-Dave 25 6780 Seniorswimmer Active 1104
-Karl 7 3789 Juniorswimmer Active 353
-Jonathan 15 6752 Juniorswimmer Passive 1059
-Mathilde 20 1041 Seniorswimmer Passive 680
-Svenn 12 6449 Juniorswimmer Active 1330
