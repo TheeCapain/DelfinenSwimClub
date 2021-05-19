@@ -1,4 +1,14 @@
-August 1 2520 Juniorswimmer Active 1276
-Mathilde 1 6462 Juniorswimmer Active 385
-Jens 2 1584 Juniorswimmer Active 401
-kurt 2 5727 Juniorswimmer Active 1425
+jens1 15 7206 Juniorswimmer Passive 396 500
+Jens2 15 4199 Juniorswimmer Active 1791 1000
+Jens3 15 7493 Juniorswimmer Active 451 1000
+Jens1 25 2755 Seniorswimmer Passive 473 500
+Jens2 25 5570 Seniorswimmer Passive 1796 500
+Jens3 25 9926 Seniorswimmer Active 1756 1600
+Jens1 65 2745 SeniorOver60 Passive 1007 500
+Jens2 65 3629 SeniorOver60 Passive 514 500
+Jens3 65 1180 SeniorOver60 Passive 593 500
+jens 65 1225 SeniorOver60 Passive 1017 500
+jens 65 6312 SeniorOver60 Passive 1823 500
+jens 65 6306 SeniorOver60 Active 1567 1200
+jens 65 7076 SeniorOver60 Passive 856 500
+jens 65 7331 SeniorOver60 Active 1333 1200

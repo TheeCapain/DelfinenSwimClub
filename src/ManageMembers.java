@@ -16,7 +16,7 @@ public class ManageMembers {
     member.setMemberShipType(member.validateMemberShip());
     member.setMemberStatus(member.memberStatusFinal());
     member.setMemberCash(member.generateRandomCash());
-    member.setYearlyPayment(100);
+    member.setYearlyPayment(member.addMembershipPayment());
     addMemberToList(member, members);
 
 

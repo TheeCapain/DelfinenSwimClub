@@ -1,15 +1,21 @@
 import java.util.Random;
-
+//For aktive medlemmer er kontingentet for ungdomssvømmere (under 18 år) 1000 kr. årligt,
+//For seniorsvømmere (18 år og over) 1600 kr. årligt.
+//For medlemmer over 60 år gives der 25 % rabat af seniortaksten.
+//For passivt medlemskab er taksten 500 kr. årligt.
 public class Member {
   // Jens
   private String name;
   private int age;
   private int ID;
-  private final String[] MEMBER_SHIP_TYPE = {"Juniorswimmer","Seniorswimmer","Senior60"};
+  private final String[] MEMBER_SHIP_TYPE = {"Juniorswimmer","Seniorswimmer","SeniorOver60"};
   private String memberShipType;
   private final String[] MEMBER_STATUS = {"Active","Passive"};
   private String memberStatus;
   private int memberCash;
+  //Members over the age of 60 are given a 25% discount on the senior = 1600. discunt wil be = 400kr.
+  private int discuntOver60 = 1600 * 25/100;
+  private final int[]   YEARLY_PAYMENT = {1000,1600,1600-discuntOver60,500};
   private int yearlyPayment;
   Random rand = new Random();
 
@@ -27,8 +33,8 @@ public class Member {
 
   //Overlording så den kan vike i  ManageMembers
   public Member() {
-
   }
+
   //August
   public String validateMemberShip() {
     if (getAge() < 18) {
@@ -56,6 +62,28 @@ public class Member {
   }
   public int generateRandomCash() {
     return rand.nextInt(2000-200) + 200;
+  }
+  //Jens
+ /* public int discuntOver60(){
+    int seniorPay = 1600;
+    //Members over the age of 60 are given a 25% discount on the senior rate.
+    this.discuntOver60 = seniorPay * 25/100;
+    return 1;
+  }*/
+  //Jens
+  public int addMembershipPayment() {
+    if (getAge() < 18 && getMemberStatus().equals("Active")) {
+      yearlyPayment = YEARLY_PAYMENT[0];
+    } else if (getAge() > 18 && getAge() <= 60 && getMemberStatus().equals("Active") ) {
+      yearlyPayment = YEARLY_PAYMENT[1];
+    } else if (getAge() > 60 && getMemberStatus().equals("Active")){
+      int seniorPay = 1600;
+      //Members over the age of 60 are given a 25% discount on the senior rate = 400kr.
+      yearlyPayment = YEARLY_PAYMENT[2];
+    } else {
+      yearlyPayment = YEARLY_PAYMENT[3];
+    }
+    return yearlyPayment;
   }
   // Jens set og get
 
@@ -121,7 +149,8 @@ public class Member {
         "\nID: " + ID +
         "\nMembershipType: " + memberShipType+
         "\nMemberStatus: " + memberStatus +
-        "\nMemberCash: " + memberCash + " kr." + "\n";
+        "\nMemberCash: " + memberCash + " kr." +
+        "\nYearlyPayment: " + yearlyPayment + " kr.";
   }
 }
 

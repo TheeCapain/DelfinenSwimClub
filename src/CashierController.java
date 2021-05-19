@@ -2,7 +2,7 @@ import java.util.ArrayList;
 
 public class CashierController {
 CashHanlder cashHanlder = new CashHanlder();
-  public void cashierController(Ui ui, Menu menu, ArrayList<Member> activeMembers) {
+  public void cashierController(Ui ui, Menu menu,ArrayList<Member> members,Member member) {
 
     String choice;
     boolean keepRunning;
@@ -17,7 +17,7 @@ CashHanlder cashHanlder = new CashHanlder();
       switch (choice) {
         case "1":
           ui.display("Active Members total");
-          //cashHanlder.setMembershipPayment(member,);
+          //cashHanlder.addMembershipPayment(members,member);
           //cashHanlder.addPassiveMember(activeMembers);
           //cashHanlder.addDiscuntOver60(seniorCompetitors);
           break;
