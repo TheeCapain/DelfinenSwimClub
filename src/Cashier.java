@@ -4,13 +4,13 @@ public class Cashier {
 
 
   public void sortActiveMember(Ui ui, ArrayList<Member> members, ArrayList<Member> activeMember, Member member, FileHandler fileHandler) {
-    fileHandler.readFile(ui, members, member);
     for (int i = 0; i < members.size(); i++) {
       if (members.get(i).getMemberStatus().equals("Active")) {
         activeMember.add(members.get(i));
       }
     }
-    printActiveMember(activeMember);
+    fileHandler.saveFile(members,ui);
+    //printActiveMember(activeMember);
   }
 
   public void printActiveMember(ArrayList<Member> activeMember) {
