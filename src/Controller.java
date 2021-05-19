@@ -2,6 +2,8 @@ import java.util.ArrayList;
 
 public class Controller {
   Ui ui = new Ui();
+  ArrayList<Member> juniorCompetitors = new ArrayList<>();
+  ArrayList<Member> seniorCompetitors = new ArrayList<>();
   ArrayList<Member> members = new ArrayList<>();
   ArrayList<Member> activeMembers = new ArrayList<>();
   FileHandler fileHandler = new FileHandler();
@@ -27,7 +29,7 @@ public class Controller {
       switch (choice) {
         case "1" -> foreman.initializeForeman(ui, members, menu, fileHandler);
         case "2" -> cashier.cashierController(ui, menu,activeMembers);
-        case "3" -> coach.coachInitializer(ui,activeMembers,menu);
+        case "3" -> coach.coachInitializer(ui,activeMembers,menu,juniorCompetitors,seniorCompetitors);
         case "9" -> {
           ui.display("Bye");
           keepRunning = false;

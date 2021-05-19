@@ -32,21 +32,56 @@ public class Competition {
     }
   }
 
-  public void assignSwimTeams(Ui ui,ArrayList<Member> juniorCompetitors, ArrayList<Member> seniorCompetiors, Competitor competitor, ArrayList<Competitor> crawl, ArrayList<Competitor> backCrawl, ArrayList<Competitor> breast, ArrayList<Competitor> butterfly) {
+  public void assignJuniorSwimTeams(Ui ui, ArrayList<Member> juniorCompetitors, ArrayList<Member> seniorCompetiors, Competitor competitor, ArrayList<Competitor> crawl, ArrayList<Competitor> backCrawl, ArrayList<Competitor> breast, ArrayList<Competitor> butterfly) {
     for (int i = 0; i < juniorCompetitors.size(); i++) {
       competitor.setName(juniorCompetitors.get(i).getName());
       competitor.setID(juniorCompetitors.get(i).getID());
       competitor.setDiscipline(competitor.randomizeDiscipline());
 
-      if (competitor.getDiscipline().equals("Crawl")) {
-        ui.display("Added to Crawl Team");
-        crawl.add(new Competitor(competitor.getName(), competitor.getID(), competitor.getDiscipline(), competitor.getLocalDateTime(),competitor.getTimer()));
-      } else if(competitor.getDiscipline().equals("BackCrawl")){
-        ui.display("Added");
-
+      switch (competitor.getDiscipline()) {
+        case "Crawl" -> {
+          crawl.add(new Competitor(competitor.getName(), competitor.getID(), competitor.getDiscipline(), competitor.getLocalDateTime(), competitor.getTimer()));
+        }
+        case "BackCrawl" -> {
+          backCrawl.add(new Competitor(competitor.getName(), competitor.getID(), competitor.getDiscipline(), competitor.getLocalDateTime(), competitor.getTimer()));
+        }
+        case "Breast" -> {
+          breast.add(new Competitor(competitor.getName(), competitor.getID(), competitor.getDiscipline(), competitor.getLocalDateTime(), competitor.getTimer()));
+        }
+        case "Butterfly" -> {
+          butterfly.add(new Competitor(competitor.getName(), competitor.getID(), competitor.getDiscipline(), competitor.getLocalDateTime(), competitor.getTimer()));
+        }
       }
+    }
+  }
 
+  public void printButterfly(Ui ui, ArrayList<Competitor> butterfly) {
+    for (int i = 0; i < butterfly.size(); i++) {
+      ui.printFormatLines();
+      ui.display(butterfly.get(i).toString());
+      ui.printFormatLines();
+    }
+  }
 
+  public void printCrawl(Ui ui, ArrayList<Competitor> crawl) {
+    for (int i = 0; i < crawl.size(); i++) {
+      ui.printFormatLines();
+      ui.display(crawl.get(i).toString());
+      ui.printFormatLines();
+    }
+  }
+  public void printBreast(Ui ui, ArrayList<Competitor> breast) {
+    for (int i = 0; i < breast.size(); i++) {
+      ui.printFormatLines();
+      ui.display(breast.get(i).toString());
+      ui.printFormatLines();
+    }
+  }
+  public void printBackCrawl(Ui ui, ArrayList<Competitor> BackCrawl) {
+    for (int i = 0; i < BackCrawl.size(); i++) {
+      ui.printFormatLines();
+      ui.display(BackCrawl.get(i).toString());
+      ui.printFormatLines();
     }
   }
 }

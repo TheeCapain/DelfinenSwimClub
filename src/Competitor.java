@@ -61,7 +61,7 @@ public class Competitor {
   }
 
   public String randomizeDiscipline() {
-    int surprise = rand.nextInt(4) + 1;
+    int surprise = rand.nextInt(3);
     return discipline = swimTypes[surprise];
 
   }
@@ -69,4 +69,15 @@ public class Competitor {
   public String getDiscipline() {
     return discipline;
   }
+
+  @Override
+  public String toString() {
+    return
+        "\nname: " + name +
+            "\nID: " + ID +
+            "\nDate and time: " + localDateTime +
+            "\nSwimTime: " + timer +
+            "\nDiscipline: " + discipline;
+  }
 }
+

@@ -2,37 +2,33 @@ import java.util.ArrayList;
 
 public class CoachController {
 
-    public void coachController() {
-
-    }
-  ArrayList<Member> juniorCompetitors = new ArrayList<>();
-  ArrayList<Member> seniorCompetitors = new ArrayList<>();
   ArrayList<Competitor> crawlSwimmers = new ArrayList<>();
   ArrayList<Competitor> breastSwimmers = new ArrayList<>();
   ArrayList<Competitor> backCrawlSwimmers = new ArrayList<>();
   ArrayList<Competitor> butterflySwimmers = new ArrayList<>();
-
+  Competitor competitor = new Competitor();
   Competition competition = new Competition();
 
-  public void coachInitializer(Ui ui, ArrayList<Member> activeMember, Menu menu) {
-    coachController(ui, activeMember, juniorCompetitors, seniorCompetitors, menu);
+  public void coachInitializer(Ui ui, ArrayList<Member> activeMember, Menu menu,ArrayList<Member>juniorCompetitors,ArrayList<Member>seniorCompetitors) {
+    competition.sortTeamsByAge(activeMember, juniorCompetitors, seniorCompetitors);
+    competition.assignJuniorSwimTeams(ui, juniorCompetitors, seniorCompetitors, competitor, crawlSwimmers,backCrawlSwimmers,breastSwimmers,butterflySwimmers);
+    coachController(ui, juniorCompetitors, seniorCompetitors, menu);
   }
 
-  public void coachController(Ui ui, ArrayList<Member> activeMember, ArrayList<Member> juniorCompetitors, ArrayList<Member> seniorCompetitors, Menu menu) {
-
+  public void coachController(Ui ui, ArrayList<Member> juniorCompetitors, ArrayList<Member> seniorCompetitors, Menu menu) {
     String choice;
     boolean isRunning = true;
-    competition.sortTeamsByAge(activeMember, juniorCompetitors, seniorCompetitors);
+
 
     do {
       menu.printCoachMenu(ui);
       ui.display("Enter number:");
       choice = ui.scanString();
       switch (choice) {
-        case "1" -> top5Controller(ui);
-        case "2" -> competition.printSeniors(seniorCompetitors, ui);
-        case "3" -> competition.printJuniors(juniorCompetitors,ui);
-        case "4" -> ui.display("hdfh");
+        case "1" -> competition.printBackCrawl(ui, backCrawlSwimmers);
+        case "2" -> competition.printButterfly(ui,butterflySwimmers);
+        case "3" -> competition.printCrawl(ui,crawlSwimmers);
+        case "4" -> competition.printBreast(ui,breastSwimmers);
         case "9" -> isRunning = false;
       }
     } while (isRunning);
@@ -41,7 +37,7 @@ public class CoachController {
 
   public void top5Controller(Ui ui) {
     String choice;
-    boolean isRunning = false;
+    boolean isRunning = true;
     ui.display("Enter number:");
 
     do {
