@@ -13,16 +13,17 @@ public class ManageMembers {
     ui.display("Enter Age");
     member.setAge(ui.scannerBugFixer());
     member.setID(member.generateRandomId());
+    member.setMemberShipType(member.validateMemberShip());
     member.setMemberStatus(member.memberStatusFinal());
     member.setMemberCash(member.generateRandomCash());
-    member.setMemberShipType(member.validateMemberShip());
+    member.setYearlyPayment(100);
     addMemberToList(member, members);
 
 
   }
 
   public void addMemberToList(Member member, ArrayList<Member> members) {
-    members.add(new Member(member.getName(), member.getAge(), member.getID(), member.getMemberShipType(), member.getMemberStatus(), member.getMemberCash()));
+    members.add(new Member(member.getName(), member.getAge(), member.getID(), member.getMemberShipType(), member.getMemberStatus(), member.getMemberCash(),member.getYearlyPayment()));
 
   }
 

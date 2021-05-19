@@ -10,16 +10,18 @@ public class Member {
   private final String[] MEMBER_STATUS = {"Active","Passive"};
   private String memberStatus;
   private int memberCash;
+  private int yearlyPayment;
   Random rand = new Random();
 
   // Jens
-  public Member(String name, int age, int ID,String memberShipType, String memberStatus, int memberCash) {
+  public Member(String name, int age, int ID,String memberShipType, String memberStatus, int memberCash, int yearlyPayment) {
     this.name = name;
     this.age = age;
     this.ID = ID;
     this.memberShipType = memberShipType;
     this.memberStatus = memberStatus;
     this.memberCash = memberCash;
+    this.yearlyPayment = yearlyPayment;
 
   }
 
@@ -103,6 +105,12 @@ public class Member {
 
   public int getMemberCash() {
     return memberCash;
+  }
+  public void setYearlyPayment(int yearlyPayment) {
+    this.yearlyPayment = yearlyPayment;
+  }
+  public int getYearlyPayment() {
+    return yearlyPayment;
   }
 
   @Override
