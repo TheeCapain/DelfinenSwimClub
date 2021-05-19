@@ -1,4 +1,5 @@
 import java.time.LocalDateTime;
+import java.util.Random;
 import java.util.Timer;
 
 public class Competitor {
@@ -6,26 +7,20 @@ public class Competitor {
   private int ID;
   private LocalDateTime localDateTime;
   private Timer timer;
-  private final String[] swimTypes = {"Crawl","Back Crawl","Breast","Butterfly"};
+  private final String[] swimTypes = {"Crawl", "Back Crawl", "Breast", "Butterfly"};
   private String discipline;
+  Random rand = new Random();
 
-  public Competitor(String name,int ID,String discipline, LocalDateTime localDateTime,Timer timer){
+  public Competitor(String name, int ID, String discipline, LocalDateTime localDateTime, Timer timer) {
     this.name = name;
     this.ID = ID;
     this.discipline = discipline;
     this.localDateTime = localDateTime;
     this.timer = timer;
   }
-  public Competitor(){
 
-  }
+  public Competitor() {
 
-  public int getID() {
-    return ID;
-  }
-
-  public void setID(int ID) {
-    this.ID = ID;
   }
 
   public String getName() {
@@ -36,8 +31,17 @@ public class Competitor {
     this.name = name;
   }
 
-  public void setLocalDateTime(LocalDateTime localDateTime) {
-    this.localDateTime = localDateTime;
+  public int getID() {
+    return ID;
+  }
+
+  public void setID(int ID) {
+    this.ID = ID;
+  }
+
+
+  public void setLocalDateTime() {
+    this.localDateTime = LocalDateTime.now();
   }
 
   public LocalDateTime getLocalDateTime() {
@@ -51,8 +55,15 @@ public class Competitor {
   public Timer getTimer() {
     return timer;
   }
+
   public void setDiscipline(String discipline) {
     this.discipline = discipline;
+  }
+
+  public String randomizeDiscipline() {
+    int surprise = rand.nextInt(4) + 1;
+    return discipline = swimTypes[surprise];
+
   }
 
   public String getDiscipline() {
