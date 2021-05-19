@@ -1,11 +1,10 @@
 import java.util.ArrayList;
 
 public class CoachController {
-<<<<<<< HEAD
+
     public void coachController() {
 
     }
-=======
   ArrayList<Member> juniorCompetitors = new ArrayList<>();
   ArrayList<Member> seniorCompetitors = new ArrayList<>();
   ArrayList<Competitor> crawlSwimmers = new ArrayList<>();
@@ -56,6 +55,4 @@ public class CoachController {
       }
     } while (isRunning);
   }
-
->>>>>>> 8eb98840c2270876d608d104acb87982c463ff08
 }

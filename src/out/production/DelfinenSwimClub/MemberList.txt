@@ -1,4 +1,0 @@
-ko 46 5518 Seniorswimmer Active 1669
-so 85 8642 Senior60 Active 1806
-kost 85 4321 Senior60 Passive 809
-sol 56464664 6763 Senior60 Active 488
