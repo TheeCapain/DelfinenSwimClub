@@ -1,36 +1,41 @@
 import java.util.ArrayList;
 
 public class CashierController {
-CashHanlder cashHanlder = new CashHanlder();
-  public void cashierController(Ui ui, Menu menu,ArrayList<Member> members,Member member) {
+CashHanlder cashHandler = new CashHanlder();
 
+
+  public void cashierController(Ui ui, Menu menu,ArrayList<Member> members,Member member) {
     String choice;
     boolean keepRunning;
+    cashHandler.addPayOrNotPay(members);
     // "1. Active Members","2. Passive Members"," Debt Members"};
 
     do {
       menu.cashierMenu(ui);
-
       ui.display("Enter a number: ");
       choice = ui.scanString();
       keepRunning = true;
       switch (choice) {
         case "1":
-          ui.display("Active Members total");
-          cashHanlder.displayTotalMembershipPayment(members);
-
+          ui.display("MembershipPayment total in kr.");
+          cashHandler.displayYearlyTotal(members,ui);
           break;
         case "2":
-          ui.display("Passive Members total");
-          cashHanlder.displayTotalPaymentConfirm(members);
+          ui.display("Total Payment in kr. ");
+          cashHandler.displayTotalPaymentConfirm(ui);
           break;
         case "3":
-          ui.display("Debt Members total");
-          cashHanlder.displayTotalDebt(members);
+          ui.display("Debt total in kr.");
+          cashHandler.displayTotalDebt(ui);
           break;
         case "4":
-          ui.display("Difference Total");
-          cashHanlder.differenceTotal();
+          ui.display("Difference Total i kr.");
+          cashHandler.differenceTotal(ui);
+          break;
+        case "5":
+          ui.display("See Debt Members info");
+
+          cashHandler.dispalyDebtMembersInfo(ui);
           break;
         case "9":
           ui.display("Closing foreman menu");

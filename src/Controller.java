@@ -9,15 +9,16 @@ public class Controller {
   ForemanController foreman = new ForemanController();
   CashierController cashier = new CashierController();
   CoachController coach = new CoachController();
-  CashHanlder cashandler = new CashHanlder();
+  CashHanlder cashHandler = new CashHanlder();
   Menu menu = new Menu();
 
 public void runController(){
   fileHandler.readFile(ui, members, member);
-  cashandler.sortActiveMember(ui,members,activeMembers,member,fileHandler);
+  cashHandler.sortActiveMember(ui,members,activeMembers,member,fileHandler);
   menuController();
 }
-  //August & Jens Controller and menu
+  //August & Je
+  // ns Controller and menu
   public void menuController() {
     String choice;
     boolean keepRunning;
