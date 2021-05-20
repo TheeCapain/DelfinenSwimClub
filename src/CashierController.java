@@ -17,15 +17,20 @@ CashHanlder cashHanlder = new CashHanlder();
       switch (choice) {
         case "1":
           ui.display("Active Members total");
-          //cashHanlder.addMembershipPayment(members,member);
-          //cashHanlder.addPassiveMember(activeMembers);
-          //cashHanlder.addDiscuntOver60(seniorCompetitors);
+          cashHanlder.displayTotalMembershipPayment(members);
+
           break;
         case "2":
           ui.display("Passive Members total");
+          cashHanlder.displayTotalPaymentConfirm(members);
           break;
         case "3":
           ui.display("Debt Members total");
+          cashHanlder.displayTotalDebt(members);
+          break;
+        case "4":
+          ui.display("Difference Total");
+          cashHanlder.differenceTotal();
           break;
         case "9":
           ui.display("Closing foreman menu");

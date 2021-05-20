@@ -69,6 +69,7 @@ public class Member {
 
   //Jens
   public int addMembershipPayment() {
+
     if (getAge() < 18 && getMemberStatus().equals("Active")) {
       yearlyPayment = YEARLY_PAYMENT[0];
 

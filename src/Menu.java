@@ -6,7 +6,7 @@ public class Menu {
   private final String[]editMemberMenu = {"1. Change name", "2. Change Age", "3. Change memberStatus","9. Back to menu"};
   private final String[]CoachMenu = {"1. View top 5","2. Start a competition","3. Back to main menu","9. Back to menu"};
   private final String[]top5Menu = {"1. Top 5 Breast Swim","2. Top 5 Crawl","3. Top 5 Back crawl","4. Top 5 Butterfly","9. Back to Coach Menu"};
-  private final String[]cashierMenu = {"1. Active Members total","2. Passive Members total","3. Debt Members total","9. Back to Cashier Menu"};
+  private final String[]cashierMenu = {"1. Active Members total","2. Passive Members total","3. Debt Members total","4. Difference Total","9. Back to Cashier Menu"};
 
   //August & Jens
   public void printMainMenu(Ui ui) {
