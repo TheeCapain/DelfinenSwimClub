@@ -7,7 +7,6 @@ public class CashierController {
   public void cashierController(Ui ui, Menu menu, ArrayList<Member> members, Member member) {
     String choice;
     boolean keepRunning;
-    cashHandler.addPayOrNotPay(members);
     // "1. Active Members","2. Passive Members"," Debt Members"};
 
     do {
@@ -34,7 +33,7 @@ public class CashierController {
           break;
         case "5":
           ui.display("See Debt Members info");
-
+          cashHandler.addPayOrNotPay(members);
           cashHandler.dispalyDebtMembersInfo(ui);
           break;
         case "9":

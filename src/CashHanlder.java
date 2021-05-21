@@ -79,7 +79,6 @@ public class CashHanlder {
     }
     fileHandler.saveFile(members, ui);
   }
-
 }
 
 

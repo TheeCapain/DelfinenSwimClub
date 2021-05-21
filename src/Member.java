@@ -161,7 +161,7 @@ public class Member implements Comparable<Member> {
 
   @Override
   public int compareTo(Member s) {
-    return this.getYearlyPayment()-s.getYearlyPayment();
+    return this.getYearlyPayment()+s.getYearlyPayment();
   }
 }
 
