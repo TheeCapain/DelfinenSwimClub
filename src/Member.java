@@ -1,14 +1,7 @@
-import java.util.Comparator;
+
 import java.util.Random;
 
-
-//For aktive medlemmer er kontingentet for ungdomssvømmere (under 18 år) 1000 kr. årligt,
-//For seniorsvømmere (18 år og over) 1600 kr. årligt.
-//For medlemmer over 60 år gives der 25 % rabat af seniortaksten.
-//For passivt medlemskab er taksten 500 kr. årligt.
-public class Member implements Comparable<Member> {
-
-
+public class Member  {
   // Jens
   private String name;
   private int age;
@@ -156,12 +149,6 @@ public class Member implements Comparable<Member> {
             "\nMemberStatus: " + memberStatus +
             "\nMemberCash: " + memberCash + " kr." +
             "\nYearlyPayment: " + yearlyPayment + " kr.";
-  }
-
-
-  @Override
-  public int compareTo(Member s) {
-    return this.getYearlyPayment()+s.getYearlyPayment();
   }
 }
 

@@ -1,7 +1,7 @@
 import java.util.ArrayList;
 
 public class CashierController {
-  CashHanlder cashHandler = new CashHanlder();
+  CashHandler cashHandler = new CashHandler();
 
 
   public void cashierController(Ui ui, Menu menu, ArrayList<Member> members, Member member) {
@@ -21,20 +21,19 @@ public class CashierController {
           break;
         case "2":
           ui.display("Total Payment in kr. ");
-          cashHandler.displayTotalPaymentConfirm(ui);
+          cashHandler.displayTotalPaymentConfirm(ui,members);
           break;
         case "3":
           ui.display("Debt total in kr.");
-          cashHandler.displayTotalDebt(ui);
+          cashHandler.displayTotalDebt(ui,members);
           break;
         case "4":
           ui.display("Difference Total i kr.");
-          cashHandler.differenceTotal(ui);
+          cashHandler.differenceTotal(ui,members);
           break;
         case "5":
           ui.display("See Debt Members info");
-          cashHandler.addPayOrNotPay(members);
-          cashHandler.dispalyDebtMembersInfo(ui);
+          cashHandler.dispalyDebtMembersInfo(ui,members);
           break;
         case "9":
           ui.display("Closing foreman menu");

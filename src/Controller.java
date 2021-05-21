@@ -10,13 +10,13 @@ public class Controller {
   ForemanController foreman = new ForemanController();
   CashierController cashier = new CashierController();
   CoachController coach = new CoachController();
-  CashHanlder cashHandler = new CashHanlder();
+  CashHandler cashHandler = new CashHandler();
   Menu menu = new Menu();
 
 public void runController(){
   fileHandler.readFile(ui, members, member);
 
-  cashHandler.sortActiveMember(ui,members,activeMembers,member,fileHandler);
+  cashHandler.sortActiveMember(ui,members,activeMembers,fileHandler);
   menuController();
 }
   //August & Je
