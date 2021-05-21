@@ -1,17 +1,17 @@
 import java.time.LocalDateTime;
+import java.time.LocalTime;
 import java.util.Random;
-import java.util.Timer;
 
-public class Competitor {
+public class Competitor implements Comparable<Competitor>{
   private String name;
   private int ID;
   private LocalDateTime localDateTime;
-  private Timer timer;
-  private final String[] swimTypes = {"Crawl", "Back Crawl", "Breast", "Butterfly"};
+  private LocalTime timer;
+  private final String[] swimTypes = {"Crawl", "BackCrawl", "Breast", "Butterfly"};
   private String discipline;
   Random rand = new Random();
 
-  public Competitor(String name, int ID, String discipline, LocalDateTime localDateTime, Timer timer) {
+  public Competitor(String name, int ID, String discipline, LocalDateTime localDateTime, LocalTime timer) {
     this.name = name;
     this.ID = ID;
     this.discipline = discipline;
@@ -48,11 +48,16 @@ public class Competitor {
     return localDateTime;
   }
 
-  public void setTimer(Timer timer) {
+  public LocalTime getRandomTime() {
+    int time = rand.nextInt(400 - 200);
+    return LocalTime.ofSecondOfDay(time);
+  }
+
+  public void setTimer(LocalTime timer) {
     this.timer = timer;
   }
 
-  public Timer getTimer() {
+  public LocalTime getTimer() {
     return timer;
   }
 
@@ -61,7 +66,7 @@ public class Competitor {
   }
 
   public String randomizeDiscipline() {
-    int surprise = rand.nextInt(3);
+    int surprise = rand.nextInt(4);
     return discipline = swimTypes[surprise];
 
   }
@@ -69,6 +74,8 @@ public class Competitor {
   public String getDiscipline() {
     return discipline;
   }
+
+
 
   @Override
   public String toString() {
@@ -79,5 +86,12 @@ public class Competitor {
             "\nSwimTime: " + timer +
             "\nDiscipline: " + discipline;
   }
+
+  @Override
+  public int compareTo(Competitor o) {
+    return getTimer().compareTo(o.getTimer());
+  }
+
+
 }
 
