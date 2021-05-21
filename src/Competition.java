@@ -1,18 +1,18 @@
 import java.time.LocalTime;
 import java.util.ArrayList;
 import java.util.Collections;
-import java.util.Comparator;
+
 
 public class Competition {
   //Compares and finds top 5
-  public void compareTimes(ArrayList<Competitor> competitors, LocalTime swimTime) {
+  public void compareTimes(ArrayList<Competitor> competitors) {
+    Collections.sort(competitors);
+
 
   }
 
 
-
-
-//A lot of sorting
+  //A lot of sorting
   public void sortTeamsByAge(ArrayList<Member> activeMember, ArrayList<Member> juniorCompetitor, ArrayList<Member> seniorCompetitor) {
     for (int i = 0; i < activeMember.size(); i++) {
       if (activeMember.get(i).getAge() < 18) {
@@ -32,24 +32,20 @@ public class Competition {
       competitor.setTimer(competitor.getRandomTime());
 
       switch (competitor.getDiscipline()) {
-        case "Crawl" -> {
-          crawl.add(new Competitor(competitor.getName(), competitor.getID(), competitor.getDiscipline(), competitor.getLocalDateTime(), competitor.getTimer()));
-        }
-        case "BackCrawl" -> {
-          backCrawl.add(new Competitor(competitor.getName(), competitor.getID(), competitor.getDiscipline(), competitor.getLocalDateTime(), competitor.getTimer()));
-        }
-        case "Breast" -> {
-          breast.add(new Competitor(competitor.getName(), competitor.getID(), competitor.getDiscipline(), competitor.getLocalDateTime(), competitor.getTimer()));
-        }
-        case "Butterfly" -> {
-          butterfly.add(new Competitor(competitor.getName(), competitor.getID(), competitor.getDiscipline(), competitor.getLocalDateTime(), competitor.getTimer()));
-        }
+        case "Crawl" -> crawl.add(new Competitor(competitor.getName(), competitor.getID(), competitor.getDiscipline(), competitor.getLocalDateTime(), competitor.getTimer()));
+
+        case "BackCrawl" -> backCrawl.add(new Competitor(competitor.getName(), competitor.getID(), competitor.getDiscipline(), competitor.getLocalDateTime(), competitor.getTimer()));
+
+        case "Breast" -> breast.add(new Competitor(competitor.getName(), competitor.getID(), competitor.getDiscipline(), competitor.getLocalDateTime(), competitor.getTimer()));
+
+        case "Butterfly" -> butterfly.add(new Competitor(competitor.getName(), competitor.getID(), competitor.getDiscipline(), competitor.getLocalDateTime(), competitor.getTimer()));
+
       }
 
     }
   }
 
-//A lot of printing
+  //A lot of printing
   public void printButterfly(Ui ui, ArrayList<Competitor> butterfly) {
     for (int i = 0; i < butterfly.size(); i++) {
       ui.printFormatLines();

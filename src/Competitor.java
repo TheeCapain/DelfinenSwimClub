@@ -2,12 +2,12 @@ import java.time.LocalDateTime;
 import java.time.LocalTime;
 import java.util.Random;
 
-public class Competitor{
+public class Competitor implements Comparable<Competitor>{
   private String name;
   private int ID;
   private LocalDateTime localDateTime;
   private LocalTime timer;
-  private final String[] swimTypes = {"Crawl", "Back Crawl", "Breast", "Butterfly"};
+  private final String[] swimTypes = {"Crawl", "BackCrawl", "Breast", "Butterfly"};
   private String discipline;
   Random rand = new Random();
 
@@ -49,7 +49,7 @@ public class Competitor{
   }
 
   public LocalTime getRandomTime() {
-    int time = rand.nextInt(400 - 100) + 400;
+    int time = rand.nextInt(400 - 200);
     return LocalTime.ofSecondOfDay(time);
   }
 
@@ -66,7 +66,7 @@ public class Competitor{
   }
 
   public String randomizeDiscipline() {
-    int surprise = rand.nextInt(3);
+    int surprise = rand.nextInt(4);
     return discipline = swimTypes[surprise];
 
   }
@@ -86,6 +86,12 @@ public class Competitor{
             "\nSwimTime: " + timer +
             "\nDiscipline: " + discipline;
   }
+
+  @Override
+  public int compareTo(Competitor o) {
+    return getTimer().compareTo(o.getTimer());
+  }
+
 
 }
 

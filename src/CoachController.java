@@ -20,7 +20,6 @@ public class CoachController {
     competition.sortTeamsByAge(activeMember, juniorCompetitors, seniorCompetitors);
     competition.assignSwimTeams(juniorCompetitors, competitor, crawlSwimmersJunior, backCrawlSwimmersJunior, breastSwimmersJunior, butterflySwimmersJunior);
     competition.assignSwimTeams(seniorCompetitors, competitor, crawlSwimmersSenior, backCrawlSwimmersSenior, breastSwimmersSenior, butterflySwimmersSenior);
-
     coachController(menu);
   }
 
@@ -46,7 +45,14 @@ public class CoachController {
   }
 
   public void top5Controller(Ui ui, Menu menu) {
-
+    competition.compareTimes(crawlSwimmersJunior);
+    competition.compareTimes(breastSwimmersJunior);
+    competition.compareTimes(backCrawlSwimmersJunior);
+    competition.compareTimes(butterflySwimmersJunior);
+    competition.compareTimes(crawlSwimmersSenior);
+    competition.compareTimes(breastSwimmersSenior);
+    competition.compareTimes(backCrawlSwimmersSenior);
+    competition.compareTimes(butterflySwimmersSenior);
     String choice;
     boolean isRunning = true;
     do {
@@ -54,14 +60,14 @@ public class CoachController {
       ui.display("Enter number:");
       choice = ui.scanString();
       switch (choice) {
-        case "1" -> competition.printBackCrawl(ui, backCrawlSwimmersJunior);
-        case "2" -> competition.printBreast(ui, breastSwimmersJunior);
-        case "3" -> competition.printButterfly(ui, butterflySwimmersJunior);
-        case "4" -> competition.printCrawl(ui, crawlSwimmersJunior);
-        case "5" -> competition.printBackCrawl(ui, backCrawlSwimmersSenior);
-        case "6" -> competition.printBreast(ui, breastSwimmersSenior);
-        case "7" -> competition.printButterfly(ui, butterflySwimmersSenior);
-        case "8" -> competition.printCrawl(ui, crawlSwimmersSenior);
+        case "1" -> competition.printBreast(ui, breastSwimmersJunior);
+        case "2" -> competition.printCrawl(ui, crawlSwimmersJunior);
+        case "3" -> competition.printBackCrawl(ui, backCrawlSwimmersJunior);
+        case "4" -> competition.printButterfly(ui, butterflySwimmersJunior);
+        case "5" -> competition.printBreast(ui, breastSwimmersSenior);
+        case "6" -> competition.printCrawl(ui, crawlSwimmersSenior);
+        case "7" -> competition.printBackCrawl(ui, backCrawlSwimmersSenior);
+        case "8" -> competition.printButterfly(ui, butterflySwimmersSenior);
         case "9" -> isRunning = false;
       }
     } while (isRunning);
