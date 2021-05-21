@@ -62,7 +62,7 @@ public class CashHandler {
   public void differenceTotal(Ui ui, ArrayList<Member> members) {
     addPayOrNotPay(members);
     int differnece = sumTotalPayment - sumTotalDebt;
-    ui.display("TotalMembership Payment in kr.: " + sumTotalPayment + "\nTotal Membership Debt in kr.: " + sumTotalDebt);
+    ui.display("Total Membership Payment in kr.: " + sumTotalPayment + "\nTotal Membership Debt in kr.: " + sumTotalDebt);
     ui.display("The Total difference: " + differnece);
   }
 

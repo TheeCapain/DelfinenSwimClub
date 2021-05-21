@@ -28,7 +28,7 @@ public class CashierController {
           cashHandler.displayTotalDebt(ui,members);
           break;
         case "4":
-          ui.display("Difference Total i kr.");
+          ui.display("Difference between Pay and debt:,");
           cashHandler.differenceTotal(ui,members);
           break;
         case "5":
