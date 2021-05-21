@@ -15,10 +15,13 @@ public class CashHanlder {
   //For passivt medlemskab er taksten 500 kr. årligt.
 
   public void addPayOrNotPay(ArrayList<Member> members) {
+
+    paid.removeAll(members);
+    notPaid.removeAll(members);
     for (int i = 0; i < members.size(); i++) {
-      if (members.get(i).getMemberCash() > members.get(i).getYearlyPayment()) {
+      if (members.get(i).getMemberCash() >= members.get(i).getYearlyPayment()) {
         paid.add(members.get(i));
-      } else {
+      } else if (members.get(i).getMemberCash() < members.get(i).getYearlyPayment()){
         notPaid.add(members.get(i));
       }
     }
@@ -32,8 +35,6 @@ public class CashHanlder {
     }
     ui.display(sumPayment + " kr.");
   }
-
-
 
   public void displayTotalPaymentConfirm(Ui ui) {
     sumConfirmPayment = 0;
@@ -62,17 +63,12 @@ public class CashHanlder {
 
   public void dispalyDebtMembersInfo(Ui ui) {
     //YearlyPayment sort
-    Collections.sort(notPaid, new Comparator<Member>() {
-      @Override
-      public int compare(Member s1, Member s2) {
-        return Integer.valueOf(s2.getYearlyPayment()).compareTo(s1.getYearlyPayment());
-      }
-    });
+    Collections.sort(notPaid);
+    //Print out
     for (int i = 0; i < notPaid.size(); i++) {
       ui.display(notPaid.get(i).toString());
     }
   }
-
 
   public void sortActiveMember(Ui ui, ArrayList<Member> members, ArrayList<Member> activeMember, Member
       member, FileHandler fileHandler) {
@@ -84,11 +80,6 @@ public class CashHanlder {
     fileHandler.saveFile(members, ui);
   }
 
-  public void printActiveMember(ArrayList<Member> activeMember) {
-    for (int i = 0; i < activeMember.size(); i++) {
-      System.out.println(activeMember.get(i).toString());
-    }
-  }
 }
 
 

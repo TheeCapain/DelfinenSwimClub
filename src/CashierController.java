@@ -1,10 +1,10 @@
 import java.util.ArrayList;
 
 public class CashierController {
-CashHanlder cashHandler = new CashHanlder();
+  CashHanlder cashHandler = new CashHanlder();
 
 
-  public void cashierController(Ui ui, Menu menu,ArrayList<Member> members,Member member) {
+  public void cashierController(Ui ui, Menu menu, ArrayList<Member> members, Member member) {
     String choice;
     boolean keepRunning;
     cashHandler.addPayOrNotPay(members);
@@ -18,7 +18,7 @@ CashHanlder cashHandler = new CashHanlder();
       switch (choice) {
         case "1":
           ui.display("MembershipPayment total in kr.");
-          cashHandler.displayYearlyTotal(members,ui);
+          cashHandler.displayYearlyTotal(members, ui);
           break;
         case "2":
           ui.display("Total Payment in kr. ");
