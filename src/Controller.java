@@ -1,6 +1,7 @@
 import java.util.ArrayList;
 
 public class Controller {
+  Bye bye = new Bye();
   Ui ui = new Ui();
   ArrayList<Member> members = new ArrayList<>();
   ArrayList<Member> activeMembers = new ArrayList<>();
@@ -12,6 +13,7 @@ public class Controller {
   CoachController coach = new CoachController();
   CashHandler cashHandler = new CashHandler();
   Menu menu = new Menu();
+
 
 public void runController(){
   fileHandler.readFile(ui, members, member);
@@ -36,7 +38,7 @@ public void runController(){
         case "2" -> cashier.cashierController(ui,menu,members,member);
         case "3" -> coach.coachInitializer(activeMembers,menu);
         case "9" -> {
-          ui.display("Bye");
+          bye.bye(ui);
           keepRunning = false;
         }
         default -> ui.display("Not a valid option");
