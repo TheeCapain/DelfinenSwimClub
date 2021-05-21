@@ -6,6 +6,7 @@ public class Controller {
   ArrayList<Member> activeMembers = new ArrayList<>();
   FileHandler fileHandler = new FileHandler();
   Member member = new Member();
+  FileHandlerScoreBoard scoreBoard = new FileHandlerScoreBoard();
   ForemanController foreman = new ForemanController();
   CashierController cashier = new CashierController();
   CoachController coach = new CoachController();
@@ -14,6 +15,7 @@ public class Controller {
 
 public void runController(){
   fileHandler.readFile(ui, members, member);
+
   cashHandler.sortActiveMember(ui,members,activeMembers,member,fileHandler);
   menuController();
 }

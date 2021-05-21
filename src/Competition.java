@@ -32,7 +32,7 @@ public class Competition {
     }
   }
 
-  public void assignSwimTeams(ArrayList<Member> juniorCompetitors, ArrayList<Member> seniorCompetiors, Competitor competitor, ArrayList<Competitor> crawl, ArrayList<Competitor> backCrawl, ArrayList<Competitor> breast, ArrayList<Competitor> butterfly) {
+  public void assignSwimTeams(ArrayList<Member> juniorCompetitors, Competitor competitor, ArrayList<Competitor> crawl, ArrayList<Competitor> backCrawl, ArrayList<Competitor> breast, ArrayList<Competitor> butterfly) {
     for (int i = 0; i < juniorCompetitors.size(); i++) {
       competitor.setName(juniorCompetitors.get(i).getName());
       competitor.setID(juniorCompetitors.get(i).getID());

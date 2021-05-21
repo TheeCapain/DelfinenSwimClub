@@ -13,7 +13,7 @@ public class CoachController {
 
   public void coachInitializer(ArrayList<Member> activeMember, Menu menu) {
     competition.sortTeamsByAge(activeMember, juniorCompetitors, seniorCompetitors);
-    competition.assignSwimTeams(juniorCompetitors, seniorCompetitors, competitor, crawlSwimmers, backCrawlSwimmers, breastSwimmers, butterflySwimmers);
+    competition.assignSwimTeams(juniorCompetitors, competitor, crawlSwimmers, backCrawlSwimmers, breastSwimmers, butterflySwimmers);
 
     coachController(menu,juniorCompetitors);
   }
