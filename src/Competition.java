@@ -1,4 +1,3 @@
-import java.time.LocalTime;
 import java.util.ArrayList;
 import java.util.Collections;
 
@@ -7,7 +6,6 @@ public class Competition {
   //Compares and finds top 5
   public void compareTimes(ArrayList<Competitor> competitors) {
     Collections.sort(competitors);
-
 
   }
 
@@ -28,19 +26,25 @@ public class Competition {
       competitor.setName(Competitors.get(i).getName());
       competitor.setID(Competitors.get(i).getID());
       competitor.setDiscipline(competitor.randomizeDiscipline());
+      //@TODO Fix tidsformattering
       competitor.setLocalDateTime();
+      //@TODO Fix laveste tid
       competitor.setTimer(competitor.getRandomTime());
+      addToDiscipline(competitor,crawl,backCrawl,breast,butterfly);
 
-      switch (competitor.getDiscipline()) {
-        case "Crawl" -> crawl.add(new Competitor(competitor.getName(), competitor.getID(), competitor.getDiscipline(), competitor.getLocalDateTime(), competitor.getTimer()));
 
-        case "BackCrawl" -> backCrawl.add(new Competitor(competitor.getName(), competitor.getID(), competitor.getDiscipline(), competitor.getLocalDateTime(), competitor.getTimer()));
+    }
+  }
 
-        case "Breast" -> breast.add(new Competitor(competitor.getName(), competitor.getID(), competitor.getDiscipline(), competitor.getLocalDateTime(), competitor.getTimer()));
+  public void addToDiscipline(Competitor competitor,ArrayList<Competitor> crawl, ArrayList<Competitor> backCrawl, ArrayList<Competitor> breast, ArrayList<Competitor> butterfly) {
+    switch (competitor.getDiscipline()) {
+      case "Crawl" -> crawl.add(new Competitor(competitor.getName(), competitor.getID(), competitor.getDiscipline(), competitor.getLocalDateTime(), competitor.getTimer()));
 
-        case "Butterfly" -> butterfly.add(new Competitor(competitor.getName(), competitor.getID(), competitor.getDiscipline(), competitor.getLocalDateTime(), competitor.getTimer()));
+      case "BackCrawl" -> backCrawl.add(new Competitor(competitor.getName(), competitor.getID(), competitor.getDiscipline(), competitor.getLocalDateTime(), competitor.getTimer()));
 
-      }
+      case "Breast" -> breast.add(new Competitor(competitor.getName(), competitor.getID(), competitor.getDiscipline(), competitor.getLocalDateTime(), competitor.getTimer()));
+
+      case "Butterfly" -> butterfly.add(new Competitor(competitor.getName(), competitor.getID(), competitor.getDiscipline(), competitor.getLocalDateTime(), competitor.getTimer()));
 
     }
   }

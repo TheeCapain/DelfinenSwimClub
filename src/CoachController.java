@@ -1,4 +1,3 @@
-import java.io.File;
 import java.util.ArrayList;
 
 public class CoachController {
@@ -37,7 +36,6 @@ public class CoachController {
           competition.printSeniors(seniorCompetitors, ui);
           competition.printJuniors(juniorCompetitors, ui);
         }
-        case "3" -> System.out.println("test");
         case "9" -> isRunning = false;
       }
     } while (isRunning);
