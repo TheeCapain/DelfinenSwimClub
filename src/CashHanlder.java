@@ -33,18 +33,7 @@ public class CashHanlder {
     ui.display(sumPayment + " kr.");
   }
 
-  /*public void sortYearlyPayment(Ui ui, ArrayList<Member> membersDebtTotal) {
-    //YearlyPayment sort
-    Collections.sort(membersDebtTotal, new Comparator<Member>() {
-      @Override
-      public int compare(Member s1, Member s2) {
-        return Integer.valueOf(s2.getYearlyPayment()).compareTo(s1.getYearlyPayment());
-      }
-    });
-    for (int i = 0; i < membersDebtTotal.size(); i++) {
-      ui.display(membersDebtTotal.get(i).toString());
-    }
-  }*/
+
 
   public void displayTotalPaymentConfirm(Ui ui) {
     sumConfirmPayment = 0;
@@ -70,7 +59,6 @@ public class CashHanlder {
     ui.display("TotalMembership Payment in kr.: " + sumPayment + "\nTotal Membership Debt in kr.: " + sumDebt);
     ui.display("The Total difference: " + differnece);
   }
-
 
   public void dispalyDebtMembersInfo(Ui ui) {
     //YearlyPayment sort
