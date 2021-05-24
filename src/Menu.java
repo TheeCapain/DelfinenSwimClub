@@ -12,6 +12,7 @@ public class Menu {
   private final String[]cashierMenu = {"1. Display MembershipPayment total","2. Display Total Payment",
       "3. Display Debt Members total",
       "4. Display Difference Total","5. Display Debt Members info","9. Back to Cashier Menu"};
+
   //August & Jens
   public void printMainMenu(Ui ui) {
     ui.printFormatLines();
